@@ -28,7 +28,7 @@
 </template>
 <script lang="ts" setup>
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
-  import { getRoleList } from '/@/api/system/role';
+  import { getRoleList, RemoveRole } from '/@/api/system/role';
   import { useDrawer } from '/@/components/Drawer';
   import RoleDrawer from './RoleDrawer.vue';
   import { columns } from './role.data';
@@ -62,8 +62,9 @@
     });
   }
 
-  function handleDelete(record: Recordable) {
-    console.log(record);
+  async function handleDelete(record: Recordable) {
+    await RemoveRole(record.id as number);
+    reload();
   }
 
   function handleSuccess() {
