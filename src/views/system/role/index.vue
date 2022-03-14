@@ -41,7 +41,7 @@
     bordered: true,
     showIndexColumn: true,
     actionColumn: {
-      width: 80,
+      width: 100,
       title: '操作',
       dataIndex: 'action',
       slots: { customRender: 'action' },
