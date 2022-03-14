@@ -15,6 +15,7 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { formSchema } from './role.data';
   import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
+  import { createNewRole } from '/@/api/system/role';
 
   const emit = defineEmits(['success', 'register']);
   const isUpdate = ref(true);
@@ -43,8 +44,9 @@
     try {
       const values = await validate();
       setDrawerProps({ confirmLoading: true });
-      // TODO custom api
-      console.log(values);
+      if (getTitle.value === '新增角色') {
+        await createNewRole(values);
+      }
       closeDrawer();
       emit('success');
     } finally {
