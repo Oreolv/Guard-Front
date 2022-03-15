@@ -11,7 +11,6 @@ const dashboard: AppRouteModule = {
     icon: 'ion:settings',
     title: '系统管理',
     orderNo: 100000,
-    roles: [RoleEnum.SUPER, RoleEnum.TEST],
   },
   children: [
     {
@@ -20,6 +19,15 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/system/role/index.vue'),
       meta: {
         title: '角色管理',
+        roles: [RoleEnum.SUPER, RoleEnum.TEST],
+      },
+    },
+    {
+      path: 'account',
+      name: 'accountSetting',
+      component: () => import('/@/views/system/account/index.vue'),
+      meta: {
+        title: '个人设置',
       },
     },
   ],
