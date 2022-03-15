@@ -12,6 +12,8 @@ export interface CreateRoleParams {
   description?: string;
 }
 
+export type UpdateRoleParams = Omit<RoleListItem, 'createTime'>;
+
 export type RoleListGetResultModel = RoleListItem[];
 
 export type CreateRolePostResultModel = RoleListItem[];

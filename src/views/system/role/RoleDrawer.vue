@@ -15,9 +15,10 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { formSchema } from './role.data';
   import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
-  import { createNewRole } from '/@/api/system/role';
+  import { createNewRole, UpdateRole } from '/@/api/system/role';
 
   const emit = defineEmits(['success', 'register']);
+  const record = ref();
   const isUpdate = ref(true);
 
   const [registerForm, { resetFields, setFieldsValue, validate }] = useForm({
@@ -30,7 +31,7 @@
     resetFields();
     setDrawerProps({ confirmLoading: false });
     isUpdate.value = !!data?.isUpdate;
-
+    record.value = data?.record;
     if (unref(isUpdate)) {
       setFieldsValue({
         ...data.record,
@@ -46,6 +47,9 @@
       setDrawerProps({ confirmLoading: true });
       if (getTitle.value === '新增角色') {
         await createNewRole(values);
+      } else {
+        values.id = record.value.id;
+        await UpdateRole(values);
       }
       closeDrawer();
       emit('success');
