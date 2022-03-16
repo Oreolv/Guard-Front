@@ -27,27 +27,23 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { CollapseContainer } from '/@/components/Container';
   import { CropperAvatar } from '/@/components/Cropper';
-
-  import { useMessage } from '/@/hooks/web/useMessage';
-
+  import { updateUserInfo } from '/@/api/sys/user';
   import headerImg from '/@/assets/images/header.jpg';
-  import { accountInfoApi } from '/@/api/demo/account';
   import { baseSetschemas } from './data';
   import { useUserStore } from '/@/store/modules/user';
   import { uploadApi } from '/@/api/sys/upload';
 
-  const { createMessage } = useMessage();
   const userStore = useUserStore();
 
-  const [register, { setFieldsValue }] = useForm({
+  const [register, { setFieldsValue, validate }] = useForm({
     labelWidth: 120,
     schemas: baseSetschemas,
     showActionButtonGroup: false,
     labelAlign: 'left',
   });
 
-  onMounted(async () => {
-    const data = await accountInfoApi();
+  onMounted(() => {
+    const data = userStore.getUserInfo;
     setFieldsValue(data);
   });
 
@@ -61,8 +57,10 @@
     userinfo.avatar = src;
     userStore.setUserInfo(userinfo);
   }
-  const handleSubmit = () => {
-    createMessage.success('更新成功！');
+  const handleSubmit = async () => {
+    const data = await validate();
+    await updateUserInfo(data);
+    await userStore.getUserInfoAction();
   };
 </script>
 

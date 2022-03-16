@@ -34,3 +34,8 @@ export interface GetUserInfoModel {
   uphone: string;
   homePath?: string | undefined;
 }
+
+export interface UpdateUserInfoParams {
+  realName: string;
+  uphone: string;
+}

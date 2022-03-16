@@ -26,33 +26,31 @@ export const settingList = [
 // 基础设置 form
 export const baseSetschemas: FormSchema[] = [
   {
-    field: 'email',
+    field: 'realName',
     component: 'Input',
-    label: '邮箱',
+    label: '真实姓名',
     colProps: { span: 18 },
   },
+
   {
-    field: 'name',
-    component: 'Input',
-    label: '昵称',
-    colProps: { span: 18 },
-  },
-  {
-    field: 'introduction',
-    component: 'InputTextArea',
-    label: '个人简介',
-    colProps: { span: 18 },
-  },
-  {
-    field: 'phone',
+    field: 'uphone',
     component: 'Input',
     label: '联系电话',
     colProps: { span: 18 },
-  },
-  {
-    field: 'address',
-    component: 'Input',
-    label: '所在地区',
-    colProps: { span: 18 },
+    dynamicRules: () => {
+      return [
+        {
+          validator: (_, value) => {
+            if (!value) {
+              return Promise.reject('手机号码不能为空');
+            }
+            if (!/^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(value)) {
+              return Promise.reject('请输入正确的手机号');
+            }
+            return Promise.resolve();
+          },
+        },
+      ];
+    },
   },
 ];
