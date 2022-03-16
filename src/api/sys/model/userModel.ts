@@ -24,12 +24,13 @@ export interface LoginResultModel {
  * @description: Get user information return value
  */
 export interface GetUserInfoModel {
-  roles: RoleInfo[];
   userId: string | number;
-  username: string;
   realName: string;
   avatar: string;
+  roles: RoleInfo[];
   cname?: string;
   rname?: string;
   bname?: string;
+  uphone: string;
+  homePath?: string | undefined;
 }
