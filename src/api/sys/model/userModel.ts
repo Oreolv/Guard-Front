@@ -39,3 +39,8 @@ export interface UpdateUserInfoParams {
   realName: string;
   uphone: string;
 }
+
+export interface UpdateUserPasswordParams {
+  passwordOld: string;
+  passwordNew: string;
+}
