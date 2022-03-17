@@ -1,24 +1,22 @@
 <template>
   <CollapseContainer title="基本设置" :canExpan="false">
-    <Row :gutter="24">
-      <Col :span="14">
+    <Row class="pt-4">
+      <Col :span="14" class="base-form">
         <BasicForm @register="register" />
+        <Button type="primary" @click="handleSubmit"> 更新基本信息 </Button>
       </Col>
-      <Col :span="10">
-        <div class="change-avatar">
-          <div class="mb-2">头像</div>
-          <CropperAvatar
-            :uploadApi="(uploadApi as any)"
-            :value="avatar"
-            btnText="更换头像"
-            :btnProps="{ preIcon: 'ant-design:cloud-upload-outlined' }"
-            @change="updateAvatar"
-            width="150"
-          />
-        </div>
+      <Col :span="10" class="change-avatar">
+        <div class="mb-2 w-150px text-center">头像预览</div>
+        <CropperAvatar
+          :uploadApi="(uploadApi as any)"
+          :value="avatar"
+          btnText="更换头像"
+          :btnProps="{ preIcon: 'ant-design:cloud-upload-outlined' }"
+          @change="updateAvatar"
+          width="150"
+        />
       </Col>
     </Row>
-    <Button type="primary" @click="handleSubmit"> 更新基本信息 </Button>
   </CollapseContainer>
 </template>
 <script lang="ts" setup>
@@ -36,7 +34,7 @@
   const userStore = useUserStore();
 
   const [register, { setFieldsValue, validate }] = useForm({
-    labelWidth: 120,
+    labelWidth: 100,
     schemas: baseSetschemas,
     showActionButtonGroup: false,
     labelAlign: 'left',
@@ -68,10 +66,21 @@
 
 <style lang="less" scoped>
   .change-avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     img {
       display: block;
       margin-bottom: 15px;
       border-radius: 50%;
     }
+  }
+
+  .base-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 </style>

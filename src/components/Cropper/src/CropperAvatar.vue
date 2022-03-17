@@ -120,7 +120,10 @@
   @prefix-cls: ~'@{namespace}-cropper-avatar';
 
   .@{prefix-cls} {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     text-align: center;
 
     &-image-wrapper {
@@ -156,7 +159,7 @@
     }
 
     &-upload-btn {
-      margin: 10px auto;
+      margin-top: 10px;
     }
   }
 </style>
