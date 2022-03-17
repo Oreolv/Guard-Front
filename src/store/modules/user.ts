@@ -1,10 +1,10 @@
-import type { UserInfo } from '/#/store';
+import type { UserInfo, UserAccountInfo } from '/#/store';
 import type { ErrorMessageMode } from '/#/axios';
 import { defineStore } from 'pinia';
 import { store } from '/@/store';
 import { RoleEnum } from '/@/enums/roleEnum';
 import { PageEnum } from '/@/enums/pageEnum';
-import { ROLES_KEY, TOKEN_KEY, USER_INFO_KEY } from '/@/enums/cacheEnum';
+import { ROLES_KEY, TOKEN_KEY, USER_INFO_KEY, USER_ACCOUNTINFO_KEY } from '/@/enums/cacheEnum';
 import { getAuthCache, setAuthCache } from '/@/utils/auth';
 import { GetUserInfoModel, LoginParams } from '/@/api/sys/model/userModel';
 import { getUserInfo, loginApi } from '/@/api/sys/user';
@@ -19,6 +19,8 @@ import { h } from 'vue';
 
 interface UserState {
   userInfo: Nullable<UserInfo>;
+  userAccountInfo: UserAccountInfo;
+  rememberMe: boolean;
   token?: string;
   roleList: RoleEnum[];
   sessionTimeout?: boolean;
@@ -30,6 +32,9 @@ export const useUserStore = defineStore({
   state: (): UserState => ({
     // user info
     userInfo: null,
+    // user name and password for rememberMe
+    userAccountInfo: {},
+    rememberMe: false,
     // token
     token: undefined,
     // roleList
@@ -69,6 +74,10 @@ export const useUserStore = defineStore({
       this.userInfo = info;
       this.lastUpdateTime = new Date().getTime();
       setAuthCache(USER_INFO_KEY, info);
+    },
+    setUserAccountInfo(info: UserAccountInfo, remember: boolean) {
+      this.userAccountInfo = info;
+      setAuthCache(USER_ACCOUNTINFO_KEY, Object.assign(info, remember));
     },
     setSessionTimeout(flag: boolean) {
       this.sessionTimeout = flag;

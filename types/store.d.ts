@@ -48,3 +48,8 @@ export interface BeforeMiniState {
   menuMode?: MenuModeEnum;
   menuType?: MenuTypeEnum;
 }
+
+export interface UserAccountInfo {
+  username?: string;
+  password?: string;
+}
