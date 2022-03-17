@@ -11,8 +11,8 @@ enum Api {
   Login = '/users/login',
   GetUserInfo = '/users/getUserInfo',
   UpdateUserInfo = '/users/updateUserInfo',
+  UpdateUserAvatar = '/users/updateUserAvatar',
 }
-
 /**
  * @description: user login api
  */
@@ -38,4 +38,9 @@ export function updateUserInfo(params: UpdateUserInfoParams) {
  */
 export function getUserInfo() {
   return defHttp.get<GetUserInfoModel>({ url: Api.GetUserInfo }, { errorMessageMode: 'none' });
+}
+
+export function updateUserAvatar(avatar: string) {
+  const params = { avatar: avatar };
+  return defHttp.put<void>({ url: Api.UpdateUserAvatar, params }, { errorMessageMode: 'none' });
 }

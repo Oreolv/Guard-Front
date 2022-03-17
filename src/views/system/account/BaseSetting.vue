@@ -27,7 +27,7 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { CollapseContainer } from '/@/components/Container';
   import { CropperAvatar } from '/@/components/Cropper';
-  import { updateUserInfo } from '/@/api/sys/user';
+  import { updateUserInfo, updateUserAvatar } from '/@/api/sys/user';
   import headerImg from '/@/assets/images/header.jpg';
   import { baseSetschemas } from './data';
   import { useUserStore } from '/@/store/modules/user';
@@ -52,9 +52,11 @@
     return avatar || headerImg;
   });
 
-  function updateAvatar(src: string) {
+  async function updateAvatar(data) {
+    const { result, source } = data;
     const userinfo = userStore.getUserInfo;
-    userinfo.avatar = src;
+    await updateUserAvatar(result);
+    userinfo.avatar = source;
     userStore.setUserInfo(userinfo);
   }
   const handleSubmit = async () => {
