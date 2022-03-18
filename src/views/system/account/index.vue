@@ -33,6 +33,7 @@
 <style lang="less">
   .account-setting {
     margin: 12px;
+    height: calc(100% - 24px);
     background-color: @component-background;
 
     .base-title {
