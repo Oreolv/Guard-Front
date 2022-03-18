@@ -3,7 +3,7 @@ import {
   CreateRolePostResultModel,
   CreateRoleParams,
   UpdateRoleParams,
-} from './model/systemModel';
+} from './model/roleModel';
 import { defHttp } from '/@/utils/http/axios';
 
 enum Api {
