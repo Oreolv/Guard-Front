@@ -30,6 +30,14 @@ const dashboard: AppRouteModule = {
         title: '个人设置',
       },
     },
+    {
+      path: 'community',
+      name: 'communityManagement',
+      component: () => import('/@/views/system/community/index.vue'),
+      meta: {
+        title: '社区管理',
+      },
+    },
   ],
 };
 
