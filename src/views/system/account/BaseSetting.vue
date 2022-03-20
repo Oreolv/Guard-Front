@@ -25,7 +25,7 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { CollapseContainer } from '/@/components/Container';
   import { CropperAvatar } from '/@/components/Cropper';
-  import { updateUserInfo, updateUserAvatar } from '/@/api/sys/user';
+  import { updateUserInfo, updateUserAvatar } from '/@/api/system/user';
   import headerImg from '/@/assets/images/header.jpg';
   import { baseSetschemas } from './data';
   import { useUserStore } from '/@/store/modules/user';

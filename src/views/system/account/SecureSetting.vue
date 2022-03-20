@@ -16,7 +16,7 @@
   import { CollapseContainer } from '/@/components/Container';
   import { BasicForm, useForm } from '/@/components/Form';
   import { passwordSchema } from './data';
-  import { updateUserPassword } from '/@/api/sys/user';
+  import { updateUserPassword } from '/@/api/system/user';
   import { useUserStore } from '/@/store/modules/user';
 
   const userStore = useUserStore();
