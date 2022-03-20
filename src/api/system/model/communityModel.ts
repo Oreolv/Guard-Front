@@ -16,4 +16,10 @@ export interface CommunityListChildrenItem {
   parentName: number;
 }
 
+export interface CreateNewCommunityParams {
+  name: string;
+  custodian: number;
+  description: string;
+}
+
 export type CommunityListGetResultModel = CommunityListItem[];

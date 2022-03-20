@@ -8,7 +8,7 @@
   import { BasicModal, useModalInner } from '/@/components/Modal';
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { formSchema } from './data';
-
+  import { createNewCommunity } from '/@/api/system/community';
   const emit = defineEmits(['success', 'register']);
   const isUpdate = ref(true);
 
@@ -35,9 +35,12 @@
   async function handleSubmit() {
     try {
       const values = await validate();
+
       setModalProps({ confirmLoading: true });
-      // TODO custom api
-      console.log(values);
+      if (getTitle.value === '新增社区') {
+        await createNewCommunity(values);
+      } else {
+      }
       closeModal();
       emit('success');
     } finally {
