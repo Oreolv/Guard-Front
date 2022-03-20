@@ -44,3 +44,10 @@ export interface UpdateUserPasswordParams {
   passwordOld: string;
   passwordNew: string;
 }
+
+export interface GetUserListModel {
+  userId: string | number;
+  username: string;
+  realName: string;
+  roleValue: string;
+}

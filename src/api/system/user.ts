@@ -3,6 +3,7 @@ import {
   LoginParams,
   LoginResultModel,
   GetUserInfoModel,
+  GetUserListModel,
   UpdateUserInfoParams,
   UpdateUserPasswordParams,
 } from './model/userModel';
@@ -11,6 +12,7 @@ import { ErrorMessageMode } from '/#/axios';
 enum Api {
   Login = '/users/login',
   GetUserInfo = '/users/getUserInfo',
+  GetUserList = '/users/getUserList',
   UpdateUserInfo = '/users/updateUserInfo',
   UpdateUserAvatar = '/users/updateUserAvatar',
   UpdateUserPassword = '/users/updateUserPassword',
@@ -40,6 +42,10 @@ export function updateUserInfo(params: UpdateUserInfoParams) {
  */
 export function getUserInfo() {
   return defHttp.get<GetUserInfoModel>({ url: Api.GetUserInfo }, { errorMessageMode: 'none' });
+}
+
+export function getUserList() {
+  return defHttp.get<GetUserListModel>({ url: Api.GetUserList }, { errorMessageMode: 'none' });
 }
 
 export function updateUserAvatar(avatar: string) {
