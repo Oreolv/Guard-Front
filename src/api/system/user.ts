@@ -18,7 +18,7 @@ enum Api {
   UpdateUserAvatar = '/users/updateUserAvatar',
   UpdateUserPassword = '/users/updateUserPassword',
   CreateNewUser = '/users/createNewUser',
-  // RemoveUser = '/users/removeUser',
+  RemoveUser = '/users/removeUser',
 }
 /**
  * @description: user login api
@@ -66,10 +66,10 @@ export function updateUserPassword(params: UpdateUserPasswordParams) {
 export const createNewUser = (params: CreateNewUserParams) =>
   defHttp.post<void>({ url: Api.CreateNewUser, params });
 
-// export const RemoveUser = (id: number) =>
-//   defHttp.delete<void>(
-//     {
-//       url: `${Api.RemoveUser}?id=${id}`,
-//     },
-//     { showSuccessMessage: true },
-//   );
+export const removeUser = (id: number) =>
+  defHttp.delete<void>(
+    {
+      url: `${Api.RemoveUser}?id=${id}`,
+    },
+    { showSuccessMessage: true },
+  );

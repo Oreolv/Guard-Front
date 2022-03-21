@@ -28,8 +28,7 @@
 </template>
 <script lang="ts" setup>
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
-  import { getCommunityList, RemoveCommunity } from '/@/api/system/community';
-  import { getUserList } from '/@/api/system/user';
+  import { getUserList, removeUser } from '/@/api/system/user';
 
   import { useModal } from '/@/components/Modal';
   import UserModal from './UserModal.vue';
@@ -73,7 +72,7 @@
   }
 
   async function handleDelete(record: Recordable) {
-    await RemoveCommunity(record.id);
+    await removeUser(record.userId);
     reload();
   }
 
