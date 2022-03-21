@@ -40,6 +40,14 @@ export interface UpdateUserInfoParams {
   uphone: string;
 }
 
+export interface UpdateUserSysParams {
+  username: string;
+  realName: string;
+  roleName: string;
+  roleValue: string;
+  uphone: string;
+}
+
 export interface UpdateUserPasswordParams {
   passwordOld: string;
   passwordNew: string;

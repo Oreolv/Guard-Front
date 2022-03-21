@@ -19,7 +19,7 @@
   import { BasicModal, useModalInner } from '/@/components/Modal';
   import { BasicForm, useForm, ApiSelect } from '/@/components/Form/index';
   import { formSchema } from './data';
-  import { createNewUser, updateUserInfo } from '/@/api/system/user';
+  import { createNewUser, updateUserSys } from '/@/api/system/user';
   import { getRoleList } from '/@/api/system/role';
   import { useMessage } from '/@/hooks/web/useMessage';
 
@@ -66,8 +66,8 @@
         await createNewUser(values);
         createSuccessModal({ title: '创建成功', content: '默认用户密码为: 123456' });
       } else {
-        values.id = record.value.id;
-        // await UpdateUserInfo(values);
+        values.id = record.value.userId;
+        await updateUserSys(values);
       }
       closeModal();
       emit('success');

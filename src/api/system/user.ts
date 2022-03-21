@@ -5,6 +5,7 @@ import {
   GetUserInfoModel,
   GetUserListModel,
   CreateNewUserParams,
+  UpdateUserSysParams,
   UpdateUserInfoParams,
   UpdateUserPasswordParams,
 } from './model/userModel';
@@ -14,6 +15,7 @@ enum Api {
   Login = '/users/login',
   GetUserInfo = '/users/getUserInfo',
   GetUserList = '/users/getUserList',
+  UpdateUserSys = '/users/updateUserSys',
   UpdateUserInfo = '/users/updateUserInfo',
   UpdateUserAvatar = '/users/updateUserAvatar',
   UpdateUserPassword = '/users/updateUserPassword',
@@ -73,3 +75,7 @@ export const removeUser = (id: number) =>
     },
     { showSuccessMessage: true },
   );
+
+export function updateUserSys(params: UpdateUserSysParams) {
+  return defHttp.put<void>({ url: Api.UpdateUserSys, params }, { showSuccessMessage: true });
+}
