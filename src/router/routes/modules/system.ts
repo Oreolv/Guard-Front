@@ -14,6 +14,15 @@ const dashboard: AppRouteModule = {
   },
   children: [
     {
+      path: 'user',
+      name: 'UserManagement',
+      component: () => import('/@/views/system/user/index.vue'),
+      meta: {
+        title: '用户管理',
+        roles: [RoleEnum.SUPER, RoleEnum.TEST],
+      },
+    },
+    {
       path: 'role',
       name: 'RoleManagement',
       component: () => import('/@/views/system/role/index.vue'),
