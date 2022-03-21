@@ -48,3 +48,23 @@ export const formSchema: FormSchema[] = [
     component: 'InputTextArea',
   },
 ];
+
+export const searchFormSchema: FormSchema[] = [
+  {
+    field: 'name',
+    label: '社区名称',
+    component: 'Input',
+    colProps: { span: 8 },
+  },
+  {
+    field: 'custodian',
+    label: '管理人',
+    component: 'ApiSelect',
+    componentProps: {
+      api: getUserList,
+      labelField: 'username',
+      valueField: 'userId',
+    },
+    colProps: { span: 8 },
+  },
+];

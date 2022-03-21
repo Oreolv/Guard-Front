@@ -1,5 +1,5 @@
 <template>
-  <div class="m-4">
+  <div>
     <BasicTable @register="registerTable">
       <template #toolbar>
         <a-button type="primary" @click="handleCreate"> 新增社区 </a-button>
@@ -33,7 +33,7 @@
   import { useModal } from '/@/components/Modal';
   import ComyModal from './ComyModal.vue';
 
-  import { columns } from './data';
+  import { columns, searchFormSchema } from './data';
 
   const [registerModal, { openModal }] = useModal();
   const [registerTable, { reload }] = useTable({
@@ -42,7 +42,9 @@
     columns,
     formConfig: {
       labelWidth: 120,
+      schemas: searchFormSchema,
     },
+    useSearchForm: true,
     striped: false,
     bordered: true,
     showIndexColumn: true,

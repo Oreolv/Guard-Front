@@ -12,8 +12,8 @@ enum Api {
   UpdateCommunity = '/Community/updateCommunity',
 }
 
-export const getCommunityList = () =>
-  defHttp.get<CommunityListGetResultModel>({ url: Api.CommunityList });
+export const getCommunityList = (params) =>
+  defHttp.get<CommunityListGetResultModel>({ url: Api.CommunityList, params });
 
 export const createNewCommunity = (params: CreateNewCommunityParams) =>
   defHttp.post<void>({ url: Api.CreateNewCommunity, params });
