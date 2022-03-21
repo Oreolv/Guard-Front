@@ -49,5 +49,7 @@ export interface GetUserListModel {
   userId: string | number;
   username: string;
   realName: string;
+  roleName: string;
   roleValue: string;
+  uphone: string;
 }
