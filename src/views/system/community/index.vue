@@ -28,7 +28,7 @@
 </template>
 <script lang="ts" setup>
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
-  import { getCommunityList } from '/@/api/system/community';
+  import { getCommunityList, RemoveCommunity } from '/@/api/system/community';
 
   import { useModal } from '/@/components/Modal';
   import ComyModal from './ComyModal.vue';
@@ -45,7 +45,7 @@
     },
     striped: false,
     bordered: true,
-    showIndexColumn: false,
+    showIndexColumn: true,
     canResize: false,
     actionColumn: {
       width: 80,
@@ -69,8 +69,9 @@
     });
   }
 
-  function handleDelete(record: Recordable) {
-    console.log(record);
+  async function handleDelete(record: Recordable) {
+    await RemoveCommunity(record.id);
+    reload();
   }
 
   function handleSuccess() {

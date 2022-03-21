@@ -4,7 +4,7 @@ import { defHttp } from '/@/utils/http/axios';
 enum Api {
   CommunityList = '/community/getCommunityList',
   CreateNewCommunity = '/community/createNewCommunity',
-  // RemoveRole = '/role/removeRole',
+  RemoveCommunity = '/community/removeCommunity',
   // UpdateRole = '/role/updateRole',
 }
 
@@ -13,3 +13,11 @@ export const getCommunityList = () =>
 
 export const createNewCommunity = (params: CreateNewCommunityParams) =>
   defHttp.post<CreateNewCommunityParams>({ url: Api.CreateNewCommunity, params });
+
+export const RemoveCommunity = (id: number) =>
+  defHttp.delete<null>(
+    {
+      url: `${Api.RemoveCommunity}?id=${id}`,
+    },
+    { showSuccessMessage: true },
+  );
