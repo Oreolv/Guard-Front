@@ -1,6 +1,6 @@
 import { BasicColumn } from '/@/components/Table';
 import { FormSchema } from '/@/components/Table';
-import { getUserList } from '/@/api/system/user';
+import { getRoleList } from '/@/api/system/role';
 
 export const columns: BasicColumn[] = [
   {
@@ -32,20 +32,22 @@ export const formSchema: FormSchema[] = [
     required: true,
   },
   {
-    field: 'custodian',
-    label: '管理人',
-    component: 'ApiSelect',
-    componentProps: {
-      api: getUserList,
-      labelField: 'username',
-      valueField: 'userId',
-    },
+    field: 'realName',
+    label: '真实姓名',
+    component: 'Input',
     required: true,
   },
   {
-    label: '备注',
-    field: 'description',
-    component: 'InputTextArea',
+    field: 'roleValue',
+    label: '用户角色',
+    component: 'Select',
+    slot: 'CustomSelect',
+    required: true,
+  },
+  {
+    label: '联系电话',
+    field: 'uphone',
+    component: 'Input',
   },
 ];
 
@@ -57,13 +59,13 @@ export const searchFormSchema: FormSchema[] = [
     colProps: { span: 8 },
   },
   {
-    field: 'roleName',
+    field: 'roleValue',
     label: '用户角色',
     component: 'ApiSelect',
     componentProps: {
-      api: getUserList,
-      labelField: 'username',
-      valueField: 'userId',
+      api: getRoleList,
+      labelField: 'roleName',
+      valueField: 'roleValue',
     },
     colProps: { span: 8 },
   },

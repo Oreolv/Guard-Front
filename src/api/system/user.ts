@@ -4,6 +4,7 @@ import {
   LoginResultModel,
   GetUserInfoModel,
   GetUserListModel,
+  CreateNewUserParams,
   UpdateUserInfoParams,
   UpdateUserPasswordParams,
 } from './model/userModel';
@@ -16,6 +17,8 @@ enum Api {
   UpdateUserInfo = '/users/updateUserInfo',
   UpdateUserAvatar = '/users/updateUserAvatar',
   UpdateUserPassword = '/users/updateUserPassword',
+  CreateNewUser = '/users/createNewUser',
+  // RemoveUser = '/users/removeUser',
 }
 /**
  * @description: user login api
@@ -59,3 +62,14 @@ export function updateUserPassword(params: UpdateUserPasswordParams) {
     { errorMessageMode: 'message', showSuccessMessage: true },
   );
 }
+
+export const createNewUser = (params: CreateNewUserParams) =>
+  defHttp.post<void>({ url: Api.CreateNewUser, params });
+
+// export const RemoveUser = (id: number) =>
+//   defHttp.delete<void>(
+//     {
+//       url: `${Api.RemoveUser}?id=${id}`,
+//     },
+//     { showSuccessMessage: true },
+//   );

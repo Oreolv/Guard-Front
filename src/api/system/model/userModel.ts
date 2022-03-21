@@ -53,3 +53,11 @@ export interface GetUserListModel {
   roleValue: string;
   uphone: string;
 }
+
+export interface CreateNewUserParams {
+  username: string;
+  realName: string;
+  roleName: string;
+  roleValue: string;
+  uphone: string;
+}
