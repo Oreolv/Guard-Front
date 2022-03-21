@@ -35,6 +35,11 @@ export interface GetUserInfoModel {
   homePath?: string | undefined;
 }
 
+export interface GetUserListParams {
+  username: string;
+  roleValue: string;
+}
+
 export interface UpdateUserInfoParams {
   realName: string;
   uphone: string;

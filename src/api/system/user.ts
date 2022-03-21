@@ -4,6 +4,7 @@ import {
   LoginResultModel,
   GetUserInfoModel,
   GetUserListModel,
+  GetUserListParams,
   CreateNewUserParams,
   UpdateUserSysParams,
   UpdateUserInfoParams,
@@ -49,8 +50,11 @@ export function getUserInfo() {
   return defHttp.get<GetUserInfoModel>({ url: Api.GetUserInfo }, { errorMessageMode: 'none' });
 }
 
-export function getUserList() {
-  return defHttp.get<GetUserListModel>({ url: Api.GetUserList }, { errorMessageMode: 'none' });
+export function getUserList(params: GetUserListParams) {
+  return defHttp.get<GetUserListModel>(
+    { url: Api.GetUserList, params },
+    { errorMessageMode: 'none' },
+  );
 }
 
 export function updateUserAvatar(avatar: string) {
