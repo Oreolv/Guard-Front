@@ -6,17 +6,17 @@ export const columns: BasicColumn[] = [
   {
     title: '社区名称',
     dataIndex: 'name',
-    width: 160,
-    align: 'left',
+    width: 200,
+  },
+  {
+    title: '管理人',
+    dataIndex: 'custodian',
+    width: 180,
   },
   {
     title: '创建时间',
     dataIndex: 'createTime',
     width: 180,
-  },
-  {
-    title: '管理人',
-    dataIndex: 'custodian',
   },
   {
     title: '备注',
