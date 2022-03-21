@@ -12,4 +12,6 @@ export interface CreateNewCommunityParams {
   description: string;
 }
 
+export type UpdateCommunityParams = Omit<CommunityListItem, 'createTime'>;
+
 export type CommunityListGetResultModel = CommunityListItem[];

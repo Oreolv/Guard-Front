@@ -8,9 +8,10 @@
   import { BasicModal, useModalInner } from '/@/components/Modal';
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { formSchema } from './data';
-  import { createNewCommunity } from '/@/api/system/community';
+  import { createNewCommunity, UpdateCommunity } from '/@/api/system/community';
   const emit = defineEmits(['success', 'register']);
   const isUpdate = ref(true);
+  const record = ref();
 
   const [registerForm, { resetFields, setFieldsValue, validate }] = useForm({
     labelWidth: 100,
@@ -22,7 +23,7 @@
     resetFields();
     setModalProps({ confirmLoading: false });
     isUpdate.value = !!data?.isUpdate;
-
+    record.value = data?.record;
     if (unref(isUpdate)) {
       setFieldsValue({
         ...data.record,
@@ -40,6 +41,8 @@
       if (getTitle.value === '新增社区') {
         await createNewCommunity(values);
       } else {
+        values.id = record.value.id;
+        await UpdateCommunity(values);
       }
       closeModal();
       emit('success');
