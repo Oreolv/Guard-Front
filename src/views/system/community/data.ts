@@ -34,12 +34,8 @@ export const formSchema: FormSchema[] = [
   {
     field: 'custodian',
     label: '管理人',
-    component: 'ApiSelect',
-    componentProps: {
-      api: getUserList,
-      labelField: 'username',
-      valueField: 'userId',
-    },
+    component: 'Select',
+    slot: 'CustomSelect',
     required: true,
   },
   {
@@ -63,7 +59,7 @@ export const searchFormSchema: FormSchema[] = [
     componentProps: {
       api: getUserList,
       labelField: 'username',
-      valueField: 'userId',
+      valueField: 'username',
     },
     colProps: { span: 8 },
   },

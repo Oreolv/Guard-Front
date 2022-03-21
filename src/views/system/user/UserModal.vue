@@ -1,6 +1,6 @@
 <template>
   <BasicModal v-bind="$attrs" @register="registerModal" :title="getTitle" @ok="handleSubmit">
-    <BasicForm @register="registerForm" ref="form">
+    <BasicForm @register="registerForm">
       <template #CustomSelect="{ model, field }">
         <ApiSelect
           :api="(getRoleList as any)"
