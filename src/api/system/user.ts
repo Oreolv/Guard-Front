@@ -38,7 +38,7 @@ export function loginApi(params: LoginParams, mode: ErrorMessageMode = 'modal') 
   );
 }
 export function updateUserInfo(params: UpdateUserInfoParams) {
-  return defHttp.put<void>(
+  return defHttp.put<null>(
     { url: Api.UpdateUserInfo, params },
     { errorMessageMode: 'none', showSuccessMessage: true },
   );
@@ -59,21 +59,21 @@ export function getUserList(params: GetUserListParams) {
 
 export function updateUserAvatar(avatar: string) {
   const params = { avatar: avatar };
-  return defHttp.put<void>({ url: Api.UpdateUserAvatar, params }, { errorMessageMode: 'none' });
+  return defHttp.put<null>({ url: Api.UpdateUserAvatar, params }, { errorMessageMode: 'none' });
 }
 
 export function updateUserPassword(params: UpdateUserPasswordParams) {
-  return defHttp.put<void>(
+  return defHttp.put<null>(
     { url: Api.UpdateUserPassword, params },
     { errorMessageMode: 'message', showSuccessMessage: true },
   );
 }
 
 export const createNewUser = (params: CreateNewUserParams) =>
-  defHttp.post<void>({ url: Api.CreateNewUser, params });
+  defHttp.post<null>({ url: Api.CreateNewUser, params });
 
 export const removeUser = (id: number) =>
-  defHttp.delete<void>(
+  defHttp.delete<null>(
     {
       url: `${Api.RemoveUser}?id=${id}`,
     },
@@ -81,5 +81,5 @@ export const removeUser = (id: number) =>
   );
 
 export function updateUserSys(params: UpdateUserSysParams) {
-  return defHttp.put<void>({ url: Api.UpdateUserSys, params }, { showSuccessMessage: true });
+  return defHttp.put<null>({ url: Api.UpdateUserSys, params }, { showSuccessMessage: true });
 }

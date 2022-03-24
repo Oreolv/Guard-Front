@@ -16,10 +16,10 @@ export const getCommunityList = (params) =>
   defHttp.get<CommunityListGetResultModel>({ url: Api.CommunityList, params });
 
 export const createNewCommunity = (params: CreateNewCommunityParams) =>
-  defHttp.post<void>({ url: Api.CreateNewCommunity, params });
+  defHttp.post<null>({ url: Api.CreateNewCommunity, params });
 
 export const RemoveCommunity = (id: number) =>
-  defHttp.delete<void>(
+  defHttp.delete<null>(
     {
       url: `${Api.RemoveCommunity}?id=${id}`,
     },
@@ -27,7 +27,7 @@ export const RemoveCommunity = (id: number) =>
   );
 
 export const UpdateCommunity = (params: UpdateCommunityParams) =>
-  defHttp.put<void>(
+  defHttp.put<null>(
     {
       url: Api.UpdateCommunity,
       params,
