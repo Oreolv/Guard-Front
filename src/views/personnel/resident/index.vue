@@ -7,10 +7,12 @@
             {
               icon: 'ant-design:info-circle-outlined',
               onClick: handleInfo.bind(null, record),
+              tooltip: '查看详情',
             },
             {
               icon: 'clarity:note-edit-line',
               onClick: handleEdit.bind(null, record),
+              tooltip: '编辑用户',
             },
           ]"
         />
@@ -23,6 +25,7 @@
   import { ref } from 'vue';
   import { useModal } from '/@/components/Modal';
   import ResidentModal from './ResidentModal.vue';
+  import { transformTableData } from './useResident';
   import { columns, searchFormSchema } from './data';
   import { getResidentList } from '/@/api/personnel/resident';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
@@ -61,8 +64,9 @@
 
   function handleInfo(record: Recordable) {
     ifShowInfo.value = true;
+    const info = transformTableData(record);
     openModal(true, {
-      record,
+      record: info,
       isUpdate: false,
     });
   }
