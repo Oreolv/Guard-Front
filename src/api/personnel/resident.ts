@@ -9,8 +9,8 @@ enum Api {
   UpdateResidentInfo = '/resident/updateResidentInfo',
 }
 
-export const getResidentList = () =>
-  defHttp.get<GetResidentListResultModel>({ url: Api.GetResidentList });
+export const getResidentList = (params) =>
+  defHttp.get<GetResidentListResultModel>({ url: Api.GetResidentList, params });
 
 export const updateResidentInfo = (params: UpdateResidentInfoParams) => {
   defHttp.put<null>({ url: Api.UpdateResidentInfo, params }, { showSuccessMessage: true });
