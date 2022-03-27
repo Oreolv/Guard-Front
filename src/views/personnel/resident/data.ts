@@ -48,23 +48,69 @@ export const columns: BasicColumn[] = [
 ];
 
 export const searchFormSchema: FormSchema[] = [
-  { field: 'uname', label: '姓名', component: 'Input', colProps: { span: 8 } },
+  {
+    field: 'uname',
+    label: '姓名',
+    component: 'Input',
+    colProps: { span: 8 },
+  },
 ];
 
 export const ResidentInfoSchema: DescItem[] = [
-  { field: 'uname', label: '姓名' },
-  { field: 'usex', label: '性别' },
-  { field: 'uphone', label: '手机' },
-  { field: 'cname', label: '社区名' },
-  { field: 'vname', label: '小区名' },
-  { field: 'bnum', label: '楼栋号' },
-  { field: 'hnum', label: '单元号' },
-  { field: 'hname', label: '门牌号' },
-  { field: 'idCard', label: '身份证', contentMinWidth: 200 },
-  { field: 'company', label: '工作单位', contentMinWidth: 200 },
-  { field: 'foreignStatus', label: '是否为当地居民' },
-  { field: 'trip', label: '是否有异地旅行史' },
-  { field: 'riskStatus', label: '是否旅居风险地区' },
+  {
+    field: 'uname',
+    label: '姓名',
+  },
+  {
+    field: 'usex',
+    label: '性别',
+  },
+  {
+    field: 'uphone',
+    label: '手机',
+  },
+  {
+    field: 'cname',
+    label: '社区名',
+  },
+  {
+    field: 'vname',
+    label: '小区名',
+  },
+  {
+    field: 'bnum',
+    label: '楼栋号',
+  },
+  {
+    field: 'hnum',
+    label: '单元号',
+  },
+  {
+    field: 'hname',
+    label: '门牌号',
+  },
+  {
+    field: 'idCard',
+    label: '身份证',
+    contentMinWidth: 200,
+  },
+  {
+    field: 'company',
+    label: '工作单位',
+    contentMinWidth: 200,
+  },
+  {
+    field: 'foreignStatus',
+    label: '是否为当地居民',
+  },
+  {
+    field: 'trip',
+    label: '是否有异地旅行史',
+  },
+  {
+    field: 'riskStatus',
+    label: '是否旅居风险地区',
+  },
   {
     field: 'vehicle',
     label: '乘坐交通工具',
@@ -80,9 +126,18 @@ export const ResidentInfoSchema: DescItem[] = [
     label: '乘坐座位号',
     show: (data) => (data.trip === '无' ? false : true),
   },
-  { field: 'healthStatus', label: '健康状态' },
-  { field: 'isolationStatus', label: '是否被隔离' },
-  { field: 'accessStatus', label: '是否限制出入' },
+  {
+    field: 'healthStatus',
+    label: '健康状态',
+  },
+  {
+    field: 'isolationStatus',
+    label: '是否被隔离',
+  },
+  {
+    field: 'accessStatus',
+    label: '是否限制出入',
+  },
   {
     field: 'isolationStart',
     label: '隔离开始时间',
@@ -98,8 +153,14 @@ export const ResidentInfoSchema: DescItem[] = [
     label: '隔离负责人',
     show: (data) => (data.isolationStatus === '否' ? false : true),
   },
-  { field: 'recorder', label: '填表人' },
-  { field: 'createTime', label: '填表时间' },
+  {
+    field: 'recorder',
+    label: '填表人',
+  },
+  {
+    field: 'createTime',
+    label: '填表时间',
+  },
 ];
 
 export const ResidentFormSchema: FormSchema[] = [
