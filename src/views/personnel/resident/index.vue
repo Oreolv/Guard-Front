@@ -32,7 +32,7 @@
 
   const [registerModal, { openModal }] = useModal();
   const [registerTable, { reload }] = useTable({
-    title: '用户列表',
+    title: '居民列表',
     api: getResidentList,
     columns,
     formConfig: {
