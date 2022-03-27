@@ -23,23 +23,24 @@
         />
       </template>
     </BasicTable>
-    <RoleDrawer @register="registerDrawer" @success="handleSuccess" />
+    <RoleModal @register="registerModal" @success="handleSuccess" />
   </div>
 </template>
 <script lang="ts" setup>
-  import { BasicTable, useTable, TableAction } from '/@/components/Table';
-  import { getRoleList, RemoveRole } from '/@/api/system/role';
-  import { useDrawer } from '/@/components/Drawer';
-  import RoleDrawer from './RoleDrawer.vue';
   import { columns } from './role.data';
+  import RoleModal from './RoleModal.vue';
+  import { useModal } from '/@/components/Modal';
+  import { getRoleList, RemoveRole } from '/@/api/system/role';
+  import { BasicTable, useTable, TableAction } from '/@/components/Table';
 
-  const [registerDrawer, { openDrawer }] = useDrawer();
+  const [registerModal, { openModal }] = useModal();
   const [registerTable, { reload }] = useTable({
     title: '角色列表',
     api: getRoleList,
     columns,
     bordered: true,
     showIndexColumn: true,
+    canResize: false,
     actionColumn: {
       width: 100,
       title: '操作',
@@ -50,13 +51,13 @@
   });
 
   function handleCreate() {
-    openDrawer(true, {
+    openModal(true, {
       isUpdate: false,
     });
   }
 
   function handleEdit(record: Recordable) {
-    openDrawer(true, {
+    openModal(true, {
       record,
       isUpdate: true,
     });

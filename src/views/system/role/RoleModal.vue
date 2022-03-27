@@ -1,21 +1,14 @@
 <template>
-  <BasicDrawer
-    v-bind="$attrs"
-    @register="registerDrawer"
-    showFooter
-    :title="getTitle"
-    width="500px"
-    @ok="handleSubmit"
-  >
+  <BasicModal v-bind="$attrs" @register="registerModal" :title="getTitle" @ok="handleSubmit">
     <BasicForm @register="registerForm" />
-  </BasicDrawer>
+  </BasicModal>
 </template>
 <script lang="ts" setup>
+  import { formSchema } from './role.data';
   import { ref, computed, unref } from 'vue';
   import { BasicForm, useForm } from '/@/components/Form/index';
-  import { formSchema } from './role.data';
-  import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
   import { createNewRole, UpdateRole } from '/@/api/system/role';
+  import { BasicModal, useModalInner } from '/@/components/Modal';
 
   const emit = defineEmits(['success', 'register']);
   const record = ref();
@@ -27,9 +20,9 @@
     showActionButtonGroup: false,
   });
 
-  const [registerDrawer, { setDrawerProps, closeDrawer }] = useDrawerInner(async (data) => {
+  const [registerModal, { setModalProps, closeModal }] = useModalInner(async (data) => {
     resetFields();
-    setDrawerProps({ confirmLoading: false });
+    setModalProps({ confirmLoading: false });
     isUpdate.value = !!data?.isUpdate;
     record.value = data?.record;
     if (unref(isUpdate)) {
@@ -44,17 +37,17 @@
   async function handleSubmit() {
     try {
       const values = await validate();
-      setDrawerProps({ confirmLoading: true });
+      setModalProps({ confirmLoading: true });
       if (getTitle.value === '新增角色') {
         await createNewRole(values);
       } else {
         values.id = record.value.id;
         await UpdateRole(values);
       }
-      closeDrawer();
+      closeModal();
       emit('success');
     } finally {
-      setDrawerProps({ confirmLoading: false });
+      setModalProps({ confirmLoading: false });
     }
   }
 </script>
