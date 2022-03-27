@@ -335,6 +335,19 @@ export const ResidentFormSchema: FormSchema[] = [
     label: '手机',
     required: true,
     component: 'Input',
+    dynamicRules: () => {
+      return [
+        {
+          required: true,
+          validator: (_, value) => {
+            if (!/^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(value)) {
+              return Promise.reject('请输入正确的手机号');
+            }
+            return Promise.resolve();
+          },
+        },
+      ];
+    },
   },
   {
     field: 'cname',
@@ -374,8 +387,20 @@ export const ResidentFormSchema: FormSchema[] = [
   {
     field: 'idCard',
     label: '身份证',
-    required: true,
     component: 'Input',
+    dynamicRules: () => {
+      return [
+        {
+          required: true,
+          validator: (_, value) => {
+            if (!/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(value)) {
+              return Promise.reject('请输入正确的身份证号码');
+            }
+            return Promise.resolve();
+          },
+        },
+      ];
+    },
   },
   {
     field: 'company',
