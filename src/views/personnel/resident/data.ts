@@ -205,8 +205,8 @@ export const ResidentFormSchema: FormSchema[] = [
     component: 'ApiSelect',
     componentProps: {
       api: getCommunityList,
-      labelField: 'realName',
-      valueField: 'userId',
+      labelField: 'name',
+      valueField: 'name',
     },
   },
   {
@@ -287,23 +287,9 @@ export const ResidentFormSchema: FormSchema[] = [
   },
   {
     field: 'trip',
-    label: '是否有异地旅行史',
+    label: '有无异地旅行史',
     required: true,
-    component: 'Select',
-    componentProps: {
-      options: [
-        {
-          label: '是',
-          value: StatusEnum.YES,
-          key: StatusEnum.YES,
-        },
-        {
-          label: '否',
-          value: StatusEnum.NO,
-          key: StatusEnum.NO,
-        },
-      ],
-    },
+    component: 'Input',
   },
   {
     field: 'vehicle',
