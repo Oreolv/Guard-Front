@@ -1,3 +1,6 @@
+import { h } from 'vue';
+import { Tag } from 'ant-design-vue';
+import { ResultColor } from '/@/enums/colorEnum';
 import { getUserList } from '/@/api/system/user';
 import { BasicColumn } from '/@/components/Table';
 import { FormSchema } from '/@/components/Table';
@@ -44,6 +47,138 @@ export const columns: BasicColumn[] = [
   {
     title: '身份证',
     dataIndex: 'idCard',
+  },
+  {
+    title: '工作单位',
+    dataIndex: 'compony',
+  },
+  {
+    title: '是否是当地居民',
+    dataIndex: 'foreignStatus',
+    width: 100,
+    customRender: ({ record }) => {
+      const color =
+        record.foreignStatus === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
+      const text = record.foreignStatus === StatusEnum.NO ? '否' : '是';
+      return h(Tag, { color: color }, () => text);
+    },
+    filters: [
+      {
+        text: '是',
+        value: String(StatusEnum.YES),
+      },
+      {
+        text: '否',
+        value: String(StatusEnum.NO),
+      },
+    ],
+    onFilter: (value: string, record: Recordable) => record.foreignStatus == value,
+  },
+  {
+    title: '是否旅居风险地区',
+    dataIndex: 'riskStatus',
+    width: 100,
+    customRender: ({ record }) => {
+      const color = record.riskStatus === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
+      const text = record.riskStatus === StatusEnum.NO ? '否' : '是';
+      return h(Tag, { color: color }, () => text);
+    },
+    filters: [
+      {
+        text: '是',
+        value: String(StatusEnum.YES),
+      },
+      {
+        text: '否',
+        value: String(StatusEnum.NO),
+      },
+    ],
+    onFilter: (value: string, record: Recordable) => record.riskStatus == value,
+  },
+  {
+    title: '健康状态',
+    dataIndex: 'healthStatus',
+    width: 100,
+    customRender: ({ record }) => {
+      let color, text;
+      switch (record.healthStatus) {
+        case HealthEnum.low:
+          text = '低风险';
+          color = ResultColor.SUCCESS;
+          break;
+        case HealthEnum.middle:
+          text = '中风险';
+          color = ResultColor.WARNING;
+          break;
+        case HealthEnum.high:
+          text = '高风险';
+          color = ResultColor.ERROR;
+          break;
+        default:
+          text = '低风险';
+          color = ResultColor.SUCCESS;
+          break;
+      }
+      return h(Tag, { color: color }, () => text);
+    },
+    filters: [
+      {
+        text: '低风险',
+        value: String(HealthEnum.low),
+      },
+      {
+        text: '中风险',
+        value: String(HealthEnum.middle),
+      },
+      {
+        text: '高风险',
+        value: String(HealthEnum.high),
+      },
+    ],
+    onFilter: (value: string, record: Recordable) => record.healthStatus == value,
+  },
+  {
+    title: '是否被隔离',
+    dataIndex: 'isolationStatus',
+    width: 110,
+    customRender: ({ record }) => {
+      const color =
+        record.isolationStatus === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
+      const text = record.isolationStatus === StatusEnum.NO ? '否' : '是';
+      return h(Tag, { color: color }, () => text);
+    },
+    filters: [
+      {
+        text: '是',
+        value: String(StatusEnum.YES),
+      },
+      {
+        text: '否',
+        value: String(StatusEnum.NO),
+      },
+    ],
+    onFilter: (value: string, record: Recordable) => record.isolationStatus == value,
+  },
+  {
+    title: '是否限制出入',
+    dataIndex: 'accessStatus',
+    width: 100,
+    customRender: ({ record }) => {
+      const color = record.accessStatus === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
+      const text = record.accessStatus === StatusEnum.NO ? '否' : '是';
+      return h(Tag, { color: color }, () => text);
+    },
+    filters: [
+      {
+        text: '是',
+        value: String(StatusEnum.YES),
+      },
+      {
+        text: '否',
+        value: String(StatusEnum.NO),
+      },
+    ],
+    onFilter: (value: string, record: Recordable) => record.accessStatus == value,
   },
 ];
 
