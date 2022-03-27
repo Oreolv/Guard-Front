@@ -488,7 +488,7 @@ export const ResidentFormSchema: FormSchema[] = [
       ],
     },
     show: (data) => {
-      return data.values.trip === StatusEnum.YES ? true : false;
+      return data.values.trip === '无' ? false : true;
     },
   },
   {
@@ -496,7 +496,7 @@ export const ResidentFormSchema: FormSchema[] = [
     label: '乘坐车牌/车次/航班号',
     component: 'Input',
     show: (data) => {
-      return data.values.trip === StatusEnum.YES ? true : false;
+      return data.values.trip === '无' ? false : true;
     },
   },
   {
@@ -504,7 +504,7 @@ export const ResidentFormSchema: FormSchema[] = [
     label: '乘坐座位号',
     component: 'Input',
     show: (data) => {
-      return data.values.trip === StatusEnum.YES ? true : false;
+      return data.values.trip === '无' ? false : true;
     },
   },
   {
@@ -579,6 +579,8 @@ export const ResidentFormSchema: FormSchema[] = [
       valueField: 'id',
     },
     show: (data) => {
+      console.log(data);
+
       return data.values.isolationStatus === StatusEnum.YES ? true : false;
     },
   },
