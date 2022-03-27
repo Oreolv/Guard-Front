@@ -12,10 +12,12 @@ export const columns: BasicColumn[] = [
   {
     title: '姓名',
     dataIndex: 'uname',
+    width: 120,
   },
   {
     title: '性别',
     dataIndex: 'usex',
+    width: 50,
     format: (data) => {
       return Number(data) === SexEnum.MALE ? '男' : '女';
     },
@@ -43,6 +45,7 @@ export const columns: BasicColumn[] = [
   {
     title: '门牌号',
     dataIndex: 'hname',
+    width: 80,
   },
   {
     title: '身份证',
@@ -50,7 +53,7 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '工作单位',
-    dataIndex: 'compony',
+    dataIndex: 'company',
   },
   {
     title: '是否是当地居民',
