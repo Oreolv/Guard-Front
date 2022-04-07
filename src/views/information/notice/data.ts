@@ -1,3 +1,6 @@
+import { h } from 'vue';
+import { Tag } from 'ant-design-vue';
+import { ResultColor } from '/@/enums/colorEnum';
 import { BasicColumn } from '/@/components/Table';
 import { FormSchema } from '/@/components/Table';
 import { DescItem } from '/@/components/Description/index';
@@ -12,11 +15,28 @@ export const columns: BasicColumn[] = [
     title: '重要等级',
     dataIndex: 'grade',
     width: 80,
-    // customRender: ({ record }) => {
-    //   const color = record.riskStatus === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
-    //   const text = record.riskStatus === StatusEnum.NO ? '否' : '是';
-    //   return h(Tag, { color: color }, () => text);
-    // },
+    customRender: ({ record }) => {
+      let color, text;
+      switch (record.grade) {
+        case NoticeEnum.LOW:
+          text = '较低';
+          color = ResultColor.SUCCESS;
+          break;
+        case NoticeEnum.MIDDLE:
+          text = '重要';
+          color = ResultColor.WARNING;
+          break;
+        case NoticeEnum.HIGH:
+          text = '紧急';
+          color = ResultColor.ERROR;
+          break;
+        default:
+          text = '较低';
+          color = ResultColor.SUCCESS;
+          break;
+      }
+      return h(Tag, { color: color }, () => text);
+    },
   },
   {
     title: '发布人',
@@ -26,7 +46,7 @@ export const columns: BasicColumn[] = [
   {
     title: '发布时间',
     dataIndex: 'createTime',
-    width: 150,
+    width: 180,
   },
 ];
 
