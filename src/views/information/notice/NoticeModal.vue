@@ -15,6 +15,23 @@
   const isUpdate = ref(true);
   const record = ref();
 
+  const resetModalStyle = (flag: boolean) => {
+    const body = document.querySelectorAll(
+      '.ant-modal .ant-modal-body > .scrollbar',
+    )[0] as HTMLElement;
+    const content = document.querySelectorAll('.ant-modal-content')[0] as HTMLElement;
+    const footer = document.querySelectorAll('.ant-modal-footer')[0] as HTMLElement;
+    if (flag) {
+      body.style.padding = '0 14px';
+      // content.style.width = 'max-content';
+      footer.style.display = 'none';
+    } else {
+      body.style.padding = '14px';
+      content.style.width = '';
+      footer.style.display = '';
+    }
+  };
+
   defineProps({
     ifShowInfo: {
       type: Boolean, // 参数类型
@@ -36,13 +53,14 @@
     setModalProps({
       canFullscreen: !unref(isUpdate),
     });
+    resetModalStyle(!unref(isUpdate));
 
     if (!unref(isUpdate)) {
       setDescProps({
         labelStyle: { fontWeight: 'bold' },
         data: data.record,
         schema: NoticeInfoSchema,
-        column: 2,
+        column: 1,
       });
     } else {
       resetFields();

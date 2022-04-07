@@ -12,7 +12,7 @@
             {
               icon: 'clarity:note-edit-line',
               onClick: handleEdit.bind(null, record),
-              tooltip: '编辑用户',
+              tooltip: '编辑公告',
             },
           ]"
         />

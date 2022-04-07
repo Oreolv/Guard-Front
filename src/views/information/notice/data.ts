@@ -58,14 +58,39 @@ export const NoticeInfoSchema: DescItem[] = [
   {
     label: '重要等级',
     field: 'grade',
+    labelMinWidth: 120,
+    render: (val) => {
+      let color, text;
+      switch (val) {
+        case NoticeEnum.LOW:
+          text = '较低';
+          color = ResultColor.SUCCESS;
+          break;
+        case NoticeEnum.MIDDLE:
+          text = '重要';
+          color = ResultColor.WARNING;
+          break;
+        case NoticeEnum.HIGH:
+          text = '紧急';
+          color = ResultColor.ERROR;
+          break;
+        default:
+          text = '较低';
+          color = ResultColor.SUCCESS;
+          break;
+      }
+      return h(Tag, { color: color }, () => text);
+    },
   },
   {
     label: '发布人',
     field: 'publisher',
+    labelMinWidth: 120,
   },
   {
     label: '发布时间',
     field: 'createTime',
+    labelMinWidth: 120,
   },
 ];
 
