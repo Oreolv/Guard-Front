@@ -45,6 +45,18 @@
       schemas: searchFormSchema,
     },
     useSearchForm: true,
+    handleSearchInfoFn: (data) => {
+      data.custodian = data.custodian ? data.custodian.key : null;
+    },
+    afterFetch: (data) => {
+      data.forEach((i) => {
+        i.custodian = {
+          value: i.custodian,
+          label: i.custodianInfo.realName,
+        };
+      });
+      console.log(data);
+    },
     striped: false,
     bordered: true,
     showIndexColumn: true,

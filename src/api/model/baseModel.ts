@@ -13,3 +13,9 @@ export interface TimeStamp {
   updatedAt: Date;
   deletedAt: Date;
 }
+
+export interface UserInfo {
+  username: string;
+  realName: string;
+  avatar: string;
+}

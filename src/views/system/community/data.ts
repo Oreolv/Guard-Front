@@ -12,10 +12,13 @@ export const columns: BasicColumn[] = [
     title: '管理人',
     dataIndex: 'custodian',
     width: 180,
+    customRender: ({ record }) => {
+      return record.custodianInfo.realName;
+    },
   },
   {
     title: '创建时间',
-    dataIndex: 'createTime',
+    dataIndex: 'createdAt',
     width: 180,
   },
   {
@@ -34,8 +37,13 @@ export const formSchema: FormSchema[] = [
   {
     field: 'custodian',
     label: '管理人',
-    component: 'Select',
-    slot: 'CustomSelect',
+    component: 'ApiSelect',
+    componentProps: {
+      api: getUserList,
+      labelInValue: true,
+      labelField: 'realName',
+      valueField: 'userId',
+    },
     required: true,
   },
   {
@@ -58,8 +66,9 @@ export const searchFormSchema: FormSchema[] = [
     component: 'ApiSelect',
     componentProps: {
       api: getUserList,
+      labelInValue: true,
       labelField: 'realName',
-      valueField: 'realName',
+      valueField: 'userId',
     },
     colProps: { span: 8 },
   },

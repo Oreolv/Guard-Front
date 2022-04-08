@@ -1,9 +1,11 @@
-export interface CommunityListItem {
+import { TimeStamp, UserInfo } from '/@/api/model/baseModel';
+
+export interface CommunityListItem extends TimeStamp {
   id: number;
   name: string;
   custodian: string;
-  createTime: string;
   description: string;
+  custodianInfo: UserInfo;
 }
 
 export interface createCommunityParams {
@@ -13,6 +15,6 @@ export interface createCommunityParams {
   realName: string;
 }
 
-export type UpdateCommunityParams = Omit<CommunityListItem, 'createTime'>;
+export type UpdateCommunityParams = Omit<CommunityListItem, 'custodianInfo'>;
 
 export type CommunityListGetResultModel = CommunityListItem[];
