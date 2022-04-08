@@ -102,7 +102,7 @@ export const NoticeFormSchema: FormSchema[] = [
     component: 'InputTextArea',
     componentProps: {
       allowClear: false,
-      autosize: { minRows: 4, maxRows: 6 },
+      autoSize: { minRows: 4, maxRows: 6 },
     },
   },
   {
