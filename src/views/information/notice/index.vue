@@ -1,6 +1,9 @@
 <template>
   <div style="margin: 16px">
     <BasicTable @register="registerTable">
+      <template #toolbar>
+        <a-button type="primary" @click="handleCreate"> 发布公告 </a-button>
+      </template>
       <template #action="{ record }">
         <TableAction
           :actions="[
@@ -32,9 +35,9 @@
 </template>
 <script lang="ts" setup>
   import { ref } from 'vue';
-  import { useModal } from '/@/components/Modal';
-  import NoticeModal from './NoticeModal.vue';
   import { columns } from './data';
+  import NoticeModal from './NoticeModal.vue';
+  import { useModal } from '/@/components/Modal';
   import { getNoticeList, demoveNotice } from '/@/api/information/notice';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
 
@@ -84,5 +87,11 @@
   async function handleDelete(record: Recordable) {
     await demoveNotice(record.id);
     reload();
+  }
+
+  function handleCreate() {
+    openModal(true, {
+      isUpdate: false,
+    });
   }
 </script>

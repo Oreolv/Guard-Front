@@ -10,7 +10,7 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { Description, useDescription } from '/@/components/Description/index';
   import { NoticeInfoSchema, NoticeFormSchema } from './data';
-  import { updateNotice } from '/@/api/information/notice';
+  import { createNotice, updateNotice } from '/@/api/information/notice';
   const emit = defineEmits(['success', 'register']);
   const isUpdate = ref(true);
   const record = ref();
@@ -24,7 +24,7 @@
     footer.style.display = flag ? 'none' : '';
   };
 
-  defineProps({
+  const props = defineProps({
     ifShowInfo: {
       type: Boolean, // 参数类型
       default: true, //默认值
@@ -46,9 +46,9 @@
     setModalProps({
       canFullscreen: !unref(isUpdate),
     });
-    resetModalStyle(!unref(isUpdate));
+    resetModalStyle(unref(props.ifShowInfo));
 
-    if (!unref(isUpdate)) {
+    if (props.ifShowInfo) {
       setDescProps({
         labelStyle: { fontWeight: 'bold' },
         data: data.record,
@@ -57,23 +57,31 @@
       });
     } else {
       resetFields();
-      setFieldsValue({
-        ...data.record,
-      });
+      if (unref(isUpdate)) {
+        setFieldsValue({
+          ...data.record,
+        });
+      }
     }
   });
 
-  const getTitle = computed(() => (!unref(isUpdate) ? '查看公告' : '编辑公告'));
-  async function handleSubmit() {
-    try {
-      const values = await validate();
-      values.id = record.value.id;
-      setModalProps({ confirmLoading: true });
-      await updateNotice(values);
-      closeModal();
-      emit('success');
-    } finally {
-      setModalProps({ confirmLoading: false });
+  const getTitle = computed(() => {
+    if (props.ifShowInfo) {
+      return '查看公告';
     }
+    return !unref(isUpdate) ? '发布公告' : '编辑公告';
+  });
+  async function handleSubmit() {
+    const values = await validate();
+    setModalProps({ confirmLoading: true });
+    if (getTitle.value === '发布公告') {
+      await createNotice(values);
+    } else {
+      values.id = record.value.id;
+      await updateNotice(values);
+    }
+    closeModal();
+    emit('success');
+    setModalProps({ confirmLoading: false });
   }
 </script>
