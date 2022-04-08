@@ -90,6 +90,7 @@
   }
 
   function handleCreate() {
+    ifShowInfo.value = false;
     openModal(true, {
       isUpdate: false,
     });
