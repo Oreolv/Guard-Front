@@ -58,8 +58,8 @@ export const searchFormSchema: FormSchema[] = [
     component: 'ApiSelect',
     componentProps: {
       api: getUserList,
-      labelField: 'username',
-      valueField: 'username',
+      labelField: 'realName',
+      valueField: 'realName',
     },
     colProps: { span: 8 },
   },

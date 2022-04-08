@@ -7,7 +7,7 @@
           allowClear
           placeholder="请选择"
           v-model:value="model[field]"
-          labelField="username"
+          labelField="realName"
           valueField="userId"
           @change="onChange"
         />
@@ -57,7 +57,7 @@
   async function handleSubmit() {
     try {
       const values = await validate();
-      values.username = comy.label;
+      values.realName = comy.label;
       values.custodian = comy.value;
       setModalProps({ confirmLoading: true });
       if (getTitle.value === '新增社区') {

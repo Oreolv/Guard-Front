@@ -10,6 +10,7 @@ export interface createCommunityParams {
   name: string;
   custodian: number;
   description: string;
+  realName: string;
 }
 
 export type UpdateCommunityParams = Omit<CommunityListItem, 'createTime'>;
