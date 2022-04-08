@@ -50,12 +50,10 @@
     },
     afterFetch: (data) => {
       data.forEach((i) => {
-        i.custodian = {
-          value: i.custodian,
-          label: i.custodianInfo.realName,
-        };
+        i.custodians = i.users.map((user) => {
+          return { value: user.id, label: user.realName };
+        });
       });
-      console.log(data);
     },
     striped: false,
     bordered: true,

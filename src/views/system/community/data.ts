@@ -13,7 +13,7 @@ export const columns: BasicColumn[] = [
     dataIndex: 'custodian',
     width: 180,
     customRender: ({ record }) => {
-      return record.custodianInfo.realName;
+      return record.custodians.map((i) => i.label).join('，');
     },
   },
   {
