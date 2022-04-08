@@ -14,6 +14,15 @@
               onClick: handleEdit.bind(null, record),
               tooltip: '编辑公告',
             },
+            {
+              icon: 'ant-design:delete-outlined',
+              color: 'error',
+              popConfirm: {
+                title: '是否确认删除',
+                confirm: handleDelete.bind(null, record),
+              },
+              tooltip: '删除公告',
+            },
           ]"
         />
       </template>
@@ -26,7 +35,7 @@
   import { useModal } from '/@/components/Modal';
   import NoticeModal from './NoticeModal.vue';
   import { columns } from './data';
-  import { getNoticeList } from '/@/api/information/notice';
+  import { getNoticeList, demoveNotice } from '/@/api/information/notice';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
 
   const [registerModal, { openModal }] = useModal();
@@ -43,7 +52,7 @@
     showIndexColumn: true,
     canResize: false,
     actionColumn: {
-      width: 80,
+      width: 120,
       title: '操作',
       dataIndex: 'action',
       slots: { customRender: 'action' },
@@ -69,6 +78,11 @@
   }
 
   function handleSuccess() {
+    reload();
+  }
+
+  async function handleDelete(record: Recordable) {
+    await demoveNotice(record.id);
     reload();
   }
 </script>
