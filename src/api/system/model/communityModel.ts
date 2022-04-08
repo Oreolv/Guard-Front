@@ -6,7 +6,7 @@ export interface CommunityListItem {
   description: string;
 }
 
-export interface CreateNewCommunityParams {
+export interface createCommunityParams {
   name: string;
   custodian: number;
   description: string;

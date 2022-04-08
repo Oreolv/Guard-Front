@@ -21,7 +21,7 @@
   import { BasicForm, useForm, ApiSelect } from '/@/components/Form/index';
   import { formSchema } from './data';
   import { getUserList } from '/@/api/system/user';
-  import { createNewCommunity, UpdateCommunity } from '/@/api/system/community';
+  import { createCommunity, UpdateCommunity } from '/@/api/system/community';
   const emit = defineEmits(['success', 'register']);
   const isUpdate = ref(true);
   const record = ref();
@@ -61,7 +61,7 @@
       values.custodian = comy.value;
       setModalProps({ confirmLoading: true });
       if (getTitle.value === '新增社区') {
-        await createNewCommunity(values);
+        await createCommunity(values);
       } else {
         values.id = record.value.id;
         await UpdateCommunity(values);
