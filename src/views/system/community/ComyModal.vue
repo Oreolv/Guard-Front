@@ -38,7 +38,7 @@
     try {
       const values = await validate();
       setModalProps({ confirmLoading: true });
-      values.custodian = values.custodian.value;
+      values.custodians = values.custodians.map((i) => i.value);
       if (getTitle.value === '新增社区') {
         await createCommunity(values);
       } else {

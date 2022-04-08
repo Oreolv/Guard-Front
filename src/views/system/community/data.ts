@@ -35,11 +35,13 @@ export const formSchema: FormSchema[] = [
     required: true,
   },
   {
-    field: 'custodian',
+    field: 'custodians',
     label: '管理人',
     component: 'ApiSelect',
     componentProps: {
       api: getUserList,
+      mode: 'multiple',
+      showArrow: true,
       labelInValue: true,
       labelField: 'realName',
       valueField: 'userId',
