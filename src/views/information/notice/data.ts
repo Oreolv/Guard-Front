@@ -100,6 +100,10 @@ export const NoticeFormSchema: FormSchema[] = [
     field: 'content',
     required: true,
     component: 'InputTextArea',
+    componentProps: {
+      allowClear: false,
+      autosize: { minRows: 4, maxRows: 6 },
+    },
   },
   {
     label: '重要等级',

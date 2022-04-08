@@ -19,17 +19,9 @@
     const body = document.querySelectorAll(
       '.ant-modal .ant-modal-body > .scrollbar',
     )[0] as HTMLElement;
-    const content = document.querySelectorAll('.ant-modal-content')[0] as HTMLElement;
     const footer = document.querySelectorAll('.ant-modal-footer')[0] as HTMLElement;
-    if (flag) {
-      body.style.padding = '0 14px';
-      // content.style.width = 'max-content';
-      footer.style.display = 'none';
-    } else {
-      body.style.padding = '14px';
-      content.style.width = '';
-      footer.style.display = '';
-    }
+    body.style.padding = flag ? '0 14px' : '20px';
+    footer.style.display = flag ? 'none' : '';
   };
 
   defineProps({
@@ -42,9 +34,10 @@
 
   const [registerDescription, { setDescProps }] = useDescription();
   const [registerForm, { resetFields, setFieldsValue, validate }] = useForm({
-    labelWidth: 150,
+    labelWidth: 80,
     schemas: NoticeFormSchema,
     showActionButtonGroup: false,
+    labelAlign: 'left',
   });
 
   const [registerModal, { setModalProps, closeModal }] = useModalInner(async (data) => {
@@ -70,7 +63,7 @@
     }
   });
 
-  const getTitle = computed(() => (!unref(isUpdate) ? '查看用户' : '编辑用户'));
+  const getTitle = computed(() => (!unref(isUpdate) ? '查看公告' : '编辑公告'));
   async function handleSubmit() {
     try {
       const values = await validate();
