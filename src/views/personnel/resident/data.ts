@@ -19,6 +19,9 @@ export const columns: BasicColumn[] = [
     dataIndex: 'usex',
     width: 50,
     format: (data) => {
+      if (data == null) {
+        return data;
+      }
       return Number(data) === SexEnum.MALE ? '男' : '女';
     },
   },
