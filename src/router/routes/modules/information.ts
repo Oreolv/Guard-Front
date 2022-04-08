@@ -8,7 +8,7 @@ const dashboard: AppRouteModule = {
   component: LAYOUT,
   redirect: '/information/notice',
   meta: {
-    icon: 'ion:people',
+    icon: 'ant-design:notification-outlined',
     title: '资讯管理',
     orderNo: 100000,
   },
