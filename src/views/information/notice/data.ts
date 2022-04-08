@@ -42,10 +42,13 @@ export const columns: BasicColumn[] = [
     title: '发布人',
     dataIndex: 'publisher',
     width: 120,
+    customRender: ({ record }) => {
+      return record.publisherInfo.realName;
+    },
   },
   {
     title: '发布时间',
-    dataIndex: 'createTime',
+    dataIndex: 'createdAt',
     width: 180,
   },
 ];
@@ -86,10 +89,13 @@ export const NoticeInfoSchema: DescItem[] = [
     label: '发布人',
     field: 'publisher',
     labelMinWidth: 120,
+    render: (_, data) => {
+      return data.publisherInfo.realName;
+    },
   },
   {
     label: '发布时间',
-    field: 'createTime',
+    field: 'createdAt',
     labelMinWidth: 120,
   },
 ];

@@ -1,15 +1,20 @@
 import { NoticeEnum } from '/@/enums/informationEnum';
-
-export interface NoticeListItem {
+import { TimeStamp } from '/@/api/model/baseModel';
+export interface PublisherInfo {
+  username: string;
+  realName: string;
+  avatar: string;
+}
+export interface NoticeListItem extends TimeStamp {
   id: number;
   content: string;
   grade: NoticeEnum;
-  publisher: string;
-  createTime: string;
+  publisher: number;
+  PublisherInfo: PublisherInfo;
 }
 
 export type GetNoticeListResultModel = NoticeListItem[];
 
-export type UpdateNoticeParams = Omit<NoticeListItem, 'createTime'>;
+export type UpdateNoticeParams = Omit<NoticeListItem, 'publisherInfo'>;
 
-export type CreateNoticeParams = Omit<NoticeListItem, 'id' | 'createTime'>;
+export type CreateNoticeParams = Omit<NoticeListItem, 'id' | 'publisherInfo'>;
