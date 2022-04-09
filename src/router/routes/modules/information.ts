@@ -18,7 +18,15 @@ const dashboard: AppRouteModule = {
       name: 'NoticeManagement',
       component: () => import('/@/views/information/notice/index.vue'),
       meta: {
-        title: '公告管理',
+        title: '社区公告',
+      },
+    },
+    {
+      path: 'news',
+      name: 'NewsManagement',
+      component: () => import('/@/views/information/news/index.vue'),
+      meta: {
+        title: '疫情新闻',
       },
     },
   ],
