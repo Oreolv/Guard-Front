@@ -7,6 +7,7 @@ export interface LoginParams {
 }
 
 export interface RoleInfo {
+  id: number;
   roleName: string;
   roleValue: string;
 }
@@ -17,7 +18,7 @@ export interface RoleInfo {
 export interface LoginResultModel {
   userId: string | number;
   token: string;
-  role: RoleInfo;
+  roles: RoleInfo;
 }
 
 /**
@@ -48,8 +49,7 @@ export interface UpdateUserInfoParams {
 export interface UpdateUserSysParams {
   username: string;
   realName: string;
-  roleName: string;
-  roleValue: string;
+  roleId: number;
   uphone: string;
 }
 
@@ -62,15 +62,14 @@ export interface GetUserListModel {
   userId: string | number;
   username: string;
   realName: string;
-  roleName: string;
-  roleValue: string;
+  roleId: number;
+  roles: RoleInfo;
   uphone: string;
 }
 
 export interface CreateNewUserParams {
   username: string;
   realName: string;
-  roleName: string;
-  roleValue: string;
+  roleId: number;
   uphone: string;
 }

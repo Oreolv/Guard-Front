@@ -15,8 +15,11 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '用户角色',
-    dataIndex: 'roleName',
+    dataIndex: 'roles',
     width: 180,
+    customRender: ({ record }) => {
+      return record.roles.label;
+    },
   },
   {
     title: '联系电话',
@@ -38,10 +41,15 @@ export const formSchema: FormSchema[] = [
     required: true,
   },
   {
-    field: 'roleValue',
+    field: 'roles',
     label: '用户角色',
-    component: 'Select',
-    slot: 'CustomSelect',
+    component: 'ApiSelect',
+    componentProps: {
+      api: getRoleList,
+      labelInValue: true,
+      labelField: 'roleName',
+      valueField: 'id',
+    },
     required: true,
   },
   {
