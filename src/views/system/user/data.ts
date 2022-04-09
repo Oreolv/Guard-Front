@@ -73,7 +73,7 @@ export const searchFormSchema: FormSchema[] = [
     componentProps: {
       api: getRoleList,
       labelField: 'roleName',
-      valueField: 'roleValue',
+      valueField: 'id',
     },
     colProps: { span: 8 },
   },
