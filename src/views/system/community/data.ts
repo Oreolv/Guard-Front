@@ -11,7 +11,6 @@ export const columns: BasicColumn[] = [
   {
     title: '管理人',
     dataIndex: 'custodian',
-    width: 180,
     customRender: ({ record }) => {
       return record.custodians.map((i) => i.label).join('，');
     },
@@ -45,7 +44,7 @@ export const formSchema: FormSchema[] = [
       showArrow: true,
       labelInValue: true,
       labelField: 'realName',
-      valueField: 'userId',
+      valueField: 'id',
     },
     required: true,
   },
@@ -72,7 +71,7 @@ export const searchFormSchema: FormSchema[] = [
       params: { withGrid: true },
       labelInValue: true,
       labelField: 'realName',
-      valueField: 'userId',
+      valueField: 'id',
     },
     colProps: { span: 8 },
   },
