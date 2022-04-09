@@ -40,6 +40,7 @@ export const formSchema: FormSchema[] = [
     component: 'ApiSelect',
     componentProps: {
       api: getUserList,
+      params: { withGrid: true },
       mode: 'multiple',
       showArrow: true,
       labelInValue: true,
@@ -68,6 +69,7 @@ export const searchFormSchema: FormSchema[] = [
     component: 'ApiSelect',
     componentProps: {
       api: getUserList,
+      params: { withGrid: true },
       labelInValue: true,
       labelField: 'realName',
       valueField: 'userId',
