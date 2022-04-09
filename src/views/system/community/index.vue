@@ -45,8 +45,12 @@
       schemas: searchFormSchema,
     },
     useSearchForm: true,
-    handleSearchInfoFn: (data) => {
-      data.custodian = data.custodian ? data.custodian.key : null;
+    beforeFetch: (data) => {
+      // TODO: handleSearchInfoFn钩子在reload时不能触发，因此query中的custodian此时是对象结构，导致列表渲染失败。
+      // TODO: 暂时先通过beforeFetch把对象结构转换，更好的做法是新增或修改数据后，重置搜索表单数据。
+      if (typeof data.custodian === 'object') {
+        data.custodian = data.custodian ? data.custodian.key : null;
+      }
     },
     afterFetch: (data) => {
       data.forEach((i) => {
