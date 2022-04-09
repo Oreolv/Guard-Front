@@ -1,3 +1,4 @@
+import { TimeStamp } from '/@/api/model/baseModel';
 import { SexEnum, StatusEnum, VehicleEnum, HealthEnum } from '/@/enums/residentEnum';
 
 export interface UserItem {
@@ -5,7 +6,7 @@ export interface UserItem {
   name: string;
 }
 
-export interface GetResidentListResultModel {
+export interface GetResidentListResultModel extends TimeStamp {
   id: number;
   openid: string;
   avatar: string;
@@ -33,5 +34,4 @@ export interface GetResidentListResultModel {
   isolationEnd: string;
   administrator: UserItem;
   recorder: UserItem;
-  createTime: string;
 }

@@ -305,7 +305,7 @@ export const ResidentInfoSchema: DescItem[] = [
     label: '填表人',
   },
   {
-    field: 'createTime',
+    field: 'createdAt',
     label: '填表时间',
   },
 ];
@@ -588,8 +588,6 @@ export const ResidentFormSchema: FormSchema[] = [
       valueField: 'id',
     },
     show: (data) => {
-      console.log(data);
-
       return data.values.isolationStatus === StatusEnum.YES ? true : false;
     },
   },
@@ -621,7 +619,7 @@ export const ResidentFormSchema: FormSchema[] = [
     show: () => false,
   },
   {
-    field: 'createTime',
+    field: 'createdAt',
     label: '填表时间',
     component: 'DatePicker',
     // 不需要工作人员填写，但是需要来传值。
