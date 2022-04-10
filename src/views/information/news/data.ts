@@ -1,6 +1,7 @@
 import { BasicColumn } from '/@/components/Table';
 import { FormSchema } from '/@/components/Table';
 import { DescItem } from '/@/components/Description/index';
+import { h } from 'vue';
 
 export const columns: BasicColumn[] = [
   {
@@ -36,6 +37,11 @@ export const NewsInfoSchema: DescItem[] = [
   {
     label: '内容',
     field: 'content',
+    render: (val) => {
+      return h('div', {
+        innerHTML: val,
+      });
+    },
   },
   {
     label: '数据来源',
@@ -48,6 +54,7 @@ export const NewsInfoSchema: DescItem[] = [
   {
     label: '发布时间',
     field: 'publishTime',
+    labelMinWidth: 80,
   },
 ];
 

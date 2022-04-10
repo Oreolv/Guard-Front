@@ -19,9 +19,14 @@
     const body = document.querySelectorAll(
       '.ant-modal .ant-modal-body > .scrollbar',
     )[0] as HTMLElement;
+    const content = document.querySelectorAll('.ant-modal-content')[0] as HTMLElement;
     const footer = document.querySelectorAll('.ant-modal-footer')[0] as HTMLElement;
-    body.style.padding = flag ? '0 14px' : '20px';
-    footer.style.display = flag ? 'none' : '';
+    if (flag) {
+      body.style.padding = flag ? '0 14px' : '20px';
+      content.style.width = '80vw';
+      content.style.marginLeft = '-20vw';
+      footer.style.display = flag ? 'none' : '';
+    }
   };
 
   const props = defineProps({
@@ -44,6 +49,7 @@
     isUpdate.value = !!data?.isUpdate;
     record.value = data?.record;
     setModalProps({
+      centered: true,
       canFullscreen: !unref(isUpdate),
     });
     resetModalStyle(unref(props.ifShowInfo));
