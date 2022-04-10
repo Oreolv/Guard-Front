@@ -8,32 +8,23 @@ export const columns: BasicColumn[] = [
     dataIndex: 'title',
   },
   {
-    title: '摘要',
-    dataIndex: 'summary',
-  },
-  {
     title: '内容',
     dataIndex: 'content',
   },
   {
     title: '数据来源',
     dataIndex: 'infoSource',
+    width: 80,
   },
   {
     title: '来源链接',
     dataIndex: 'sourceURL',
-  },
-  {
-    title: '省市名称',
-    dataIndex: 'province',
-  },
-  {
-    title: '发布人',
-    dataIndex: 'publisher',
+    width: 80,
   },
   {
     title: '发布时间',
     dataIndex: 'publishTime',
+    width: 150,
   },
 ];
 
@@ -41,10 +32,6 @@ export const NewsInfoSchema: DescItem[] = [
   {
     label: '标题',
     field: 'title',
-  },
-  {
-    label: '摘要',
-    field: 'summary',
   },
   {
     label: '内容',
@@ -57,14 +44,6 @@ export const NewsInfoSchema: DescItem[] = [
   {
     label: '来源链接',
     field: 'sourceURL',
-  },
-  {
-    label: '省市名称',
-    field: 'province',
-  },
-  {
-    label: '发布人',
-    field: 'publisher',
   },
   {
     label: '发布时间',
