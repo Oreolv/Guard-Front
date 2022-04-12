@@ -3,12 +3,13 @@
     <Upload
       name="file"
       multiple
+      :headers="headers!"
       @change="handleChange"
       :action="uploadUrl"
       :showUploadList="false"
       accept=".jpg,.jpeg,.gif,.png,.webp"
     >
-      <a-button type="primary" v-bind="{ ...getButtonProps }">
+      <a-button type="info" v-bind="{ ...getButtonProps }">
         {{ t('component.upload.imgUpload') }}
       </a-button>
     </Upload>
@@ -21,6 +22,7 @@
   import { useDesign } from '/@/hooks/web/useDesign';
   import { useGlobSetting } from '/@/hooks/setting';
   import { useI18n } from '/@/hooks/web/useI18n';
+  import { getToken } from '/@/utils/auth';
 
   export default defineComponent({
     name: 'TinymceImageUpload',
@@ -49,10 +51,14 @@
         };
       });
 
+      const headers = {
+        Authorization: `Bearer ${getToken()}`,
+      };
+
       function handleChange(info: Recordable) {
         const file = info.file;
         const status = file?.status;
-        const url = file?.response?.url;
+        const url = file?.response?.result;
         const name = file?.name;
 
         if (status === 'uploading') {
@@ -74,6 +80,7 @@
         handleChange,
         uploadUrl,
         t,
+        headers,
         getButtonProps,
       };
     },
