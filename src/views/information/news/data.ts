@@ -16,6 +16,9 @@ export const columns: BasicColumn[] = [
     title: '数据来源',
     dataIndex: 'infoSource',
     width: 80,
+    customRender: ({ record }) => {
+      return record.mediaInfo.name;
+    },
   },
   {
     title: '来源链接',
@@ -46,6 +49,9 @@ export const NewsInfoSchema: DescItem[] = [
   {
     label: '数据来源',
     field: 'infoSource',
+    render: (_, data) => {
+      return data.mediaInfo.name;
+    },
   },
   {
     label: '来源链接',
