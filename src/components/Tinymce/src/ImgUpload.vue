@@ -9,7 +9,7 @@
       :showUploadList="false"
       accept=".jpg,.jpeg,.gif,.png,.webp"
     >
-      <a-button type="info" v-bind="{ ...getButtonProps }">
+      <a-button id="upload-button" type="info" v-bind="{ ...getButtonProps }">
         {{ t('component.upload.imgUpload') }}
       </a-button>
     </Upload>
@@ -91,13 +91,42 @@
 
   .@{prefix-cls} {
     position: absolute;
-    top: 4px;
-    right: 10px;
+    top: 1px;
+    left: 230px;
     z-index: 20;
 
     &.fullscreen {
       position: fixed;
       z-index: 10000;
     }
+  }
+
+  #upload-button {
+    cursor: default;
+    display: flex;
+    width: auto;
+    height: 34px;
+    padding: 0 4px;
+    margin: 2px 0 3px 0;
+    overflow: hidden;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: #222f3e;
+    text-transform: normal;
+    background: 0 0;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+    box-shadow: none;
+    align-items: center;
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+
+  #upload-button:hover:not(:disabled) {
+    color: #222f3e;
+    background: #dee0e2;
+    box-shadow: none;
   }
 </style>
