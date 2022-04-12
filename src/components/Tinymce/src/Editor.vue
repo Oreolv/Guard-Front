@@ -160,6 +160,7 @@
           link_title: false,
           object_resizing: false,
           auto_focus: true,
+          autosave_ask_before_unload: false,
           skin: skinName.value,
           skin_url: publicPath + 'resource/tinymce/skins/ui/' + skinName.value,
           content_css:
