@@ -90,3 +90,9 @@
     setModalProps({ confirmLoading: false });
   }
 </script>
+
+<style>
+  .ant-popover-inner-content {
+    width: max-content;
+  }
+</style>
