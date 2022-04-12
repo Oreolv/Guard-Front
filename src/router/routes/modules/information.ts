@@ -22,6 +22,14 @@ const dashboard: AppRouteModule = {
       },
     },
     {
+      path: 'tips',
+      name: 'TipsManagement',
+      component: () => import('/@/views/information/tips/index.vue'),
+      meta: {
+        title: '防疫知识',
+      },
+    },
+    {
       path: 'news',
       name: 'NewsManagement',
       component: () => import('/@/views/information/news/index.vue'),
