@@ -75,17 +75,13 @@ export const TipsFormSchema: FormSchema[] = [
     label: '摘要',
     field: 'summary',
     required: true,
-    component: 'Input',
+    component: 'InputTextArea',
   },
   {
     label: '内容',
     field: 'content',
-    required: true,
     component: 'InputTextArea',
-    componentProps: {
-      allowClear: false,
-      autoSize: { minRows: 4, maxRows: 6 },
-    },
+    slot: 'customSlot',
   },
   {
     label: '数据来源',

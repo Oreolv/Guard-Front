@@ -1,7 +1,11 @@
 <template>
   <BasicModal v-bind="$attrs" @register="registerModal" :title="getTitle" @ok="handleSubmit">
     <Description @register="registerDescription" class="mt-4" v-if="ifShowInfo" />
-    <BasicForm @register="registerForm" v-else />
+    <BasicForm @register="registerForm" v-else>
+      <template #customSlot>
+        <Tinymce v-model="tinymceValue" width="100%" />
+      </template>
+    </BasicForm>
   </BasicModal>
 </template>
 <script lang="ts" setup>
@@ -11,9 +15,12 @@
   import { Description, useDescription } from '/@/components/Description/index';
   import { TipsInfoSchema, TipsFormSchema } from './data';
   import { createTips, updateTips } from '/@/api/information/tips';
+  import { Tinymce } from '/@/components/Tinymce/index';
+
   const emit = defineEmits(['success', 'register']);
   const isUpdate = ref(true);
   const record = ref();
+  const tinymceValue = ref('');
 
   const resetModalStyle = (flag: boolean) => {
     const body = document.querySelectorAll(
@@ -65,6 +72,9 @@
         setFieldsValue({
           ...data.record,
         });
+        tinymceValue.value = data.record.content;
+      } else {
+        tinymceValue.value = '';
       }
     }
   });
@@ -78,6 +88,7 @@
   async function handleSubmit() {
     const values = await validate();
     setModalProps({ confirmLoading: true });
+    values.content = tinymceValue.value;
     if (getTitle.value === '发布知识') {
       values.publishTime = new Date();
       await createTips(values);
