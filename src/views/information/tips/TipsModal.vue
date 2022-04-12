@@ -21,12 +21,10 @@
     )[0] as HTMLElement;
     const content = document.querySelectorAll('.ant-modal-content')[0] as HTMLElement;
     const footer = document.querySelectorAll('.ant-modal-footer')[0] as HTMLElement;
-    if (flag) {
-      body.style.padding = flag ? '0 14px' : '20px';
-      content.style.width = '80vw';
-      content.style.marginLeft = '-20vw';
-      footer.style.display = flag ? 'none' : '';
-    }
+    body.style.padding = flag ? '0 14px' : '20px';
+    content.style.width = '80vw';
+    content.style.marginLeft = '-20vw';
+    footer.style.display = flag ? 'none' : '';
   };
 
   const props = defineProps({
@@ -81,6 +79,7 @@
     const values = await validate();
     setModalProps({ confirmLoading: true });
     if (getTitle.value === '发布知识') {
+      values.publishTime = new Date();
       await createTips(values);
     } else {
       values.id = record.value.id;
