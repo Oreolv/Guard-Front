@@ -19,3 +19,9 @@ export interface UserInfo {
   realName: string;
   avatar: string;
 }
+
+export interface ResidentInfo {
+  uname: string;
+  uphone: string;
+  cname: string;
+}
