@@ -27,7 +27,20 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/personnel/visitor/index.vue'),
       meta: {
         title: '访客审批',
+        ignoreKeepAlive: false,
       },
+    },
+    {
+      path: 'visitor_detail/:id',
+      name: 'VisitorDetail',
+      meta: {
+        title: '查看详情',
+        hideMenu: true,
+        showMenu: false,
+        ignoreKeepAlive: true,
+        currentActiveMenu: '/personnel/visitor',
+      },
+      component: () => import('/@/views/personnel/visitor/VisitorDetail.vue'),
     },
   ],
 };
