@@ -21,6 +21,14 @@ const dashboard: AppRouteModule = {
         title: '居民管理',
       },
     },
+    {
+      path: 'visitor',
+      name: 'VisitorManagement',
+      component: () => import('/@/views/personnel/visitor/index.vue'),
+      meta: {
+        title: '访客审批',
+      },
+    },
   ],
 };
 
