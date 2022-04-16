@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-4">
     <BasicTable @register="registerTable">
       <template #action="{ record }">
         <TableAction
@@ -23,7 +23,7 @@
   const go = useGo();
 
   const [registerTable] = useTable({
-    title: '居民列表',
+    title: '访客审批列表',
     api: getVisitorList,
     columns,
     striped: false,

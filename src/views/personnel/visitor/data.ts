@@ -102,7 +102,7 @@ export const VisitorInfoSchema: DescItem[] = [
     field: 'approveTime',
     label: '审批时间',
     render: (_, data) => {
-      return data.approveTime ? data.approverInfo.approveTime : '待审批';
+      return data.approveTime ? data.approveTime : '待审批';
     },
   },
 ];
