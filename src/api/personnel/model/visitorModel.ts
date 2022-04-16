@@ -15,5 +15,11 @@ export interface VisitorItem extends TimeStamp {
   endTime: string;
 }
 
+export interface UpdateVisitorParams {
+  id: number;
+  status: number;
+  description?: string;
+}
+
 export type GetVisitorListResultModel = VisitorItem[];
 export type GetVisitorDetailResultModel = VisitorItem;
