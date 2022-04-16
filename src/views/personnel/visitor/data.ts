@@ -1,7 +1,10 @@
 import { h } from 'vue';
+import { Tag } from 'ant-design-vue';
+import { ResultColor } from '/@/enums/colorEnum';
 import { BasicColumn } from '/@/components/Table';
 import { DescItem } from '/@/components/Description';
 import { createImgPreview, ImagePreview } from '/@/components/Preview/index';
+import { ApplyStatusEnum } from '/@/enums/personnelEnum';
 
 export const columns: BasicColumn[] = [
   {
@@ -30,6 +33,33 @@ export const columns: BasicColumn[] = [
     width: 120,
     customRender: ({ record }) => {
       return record.approverInfo ? record.approverInfo.username : '待审批';
+    },
+  },
+  {
+    title: '审批结果',
+    dataIndex: 'status',
+    width: 120,
+    customRender: ({ record }) => {
+      let color, text;
+      switch (record.status) {
+        case ApplyStatusEnum.approval:
+          text = '已通过';
+          color = ResultColor.SUCCESS;
+          break;
+        case ApplyStatusEnum.underReview:
+          text = '待审核';
+          color = ResultColor.WARNING;
+          break;
+        case ApplyStatusEnum.reject:
+          text = '已拒绝';
+          color = ResultColor.ERROR;
+          break;
+        default:
+          text = '已通过';
+          color = ResultColor.SUCCESS;
+          break;
+      }
+      return h(Tag, { color: color }, () => text);
     },
   },
 ];
