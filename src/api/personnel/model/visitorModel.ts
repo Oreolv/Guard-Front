@@ -11,6 +11,7 @@ export interface VisitorItem extends TimeStamp {
   approver: number;
   approverInfo: UserInfo;
   applicantInfo: ResidentInfo;
+  description: string;
   startTime: string;
   endTime: string;
 }
