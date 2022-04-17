@@ -42,6 +42,27 @@ const dashboard: AppRouteModule = {
       },
       component: () => import('/@/views/personnel/visitor/VisitorDetail.vue'),
     },
+    {
+      path: 'trip',
+      name: 'TripManagement',
+      component: () => import('/@/views/personnel/trip/index.vue'),
+      meta: {
+        title: '行程审批',
+        ignoreKeepAlive: false,
+      },
+    },
+    {
+      path: 'trip_detail/:id',
+      name: 'TripDetail',
+      meta: {
+        title: '查看详情',
+        hideMenu: true,
+        showMenu: false,
+        ignoreKeepAlive: true,
+        currentActiveMenu: '/personnel/trip',
+      },
+      component: () => import('/@/views/personnel/trip/TripDetail.vue'),
+    },
   ],
 };
 
