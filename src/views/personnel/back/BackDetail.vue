@@ -56,6 +56,7 @@
     state.backDetail = await getBackDetail(Number(state.backId));
     setDescProps({
       labelStyle: { fontWeight: 'bold' },
+      contentStyle: { textAlign: 'left' },
       data: state.backDetail,
       schema: BackInfoSchema,
       column: 2,
