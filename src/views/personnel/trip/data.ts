@@ -79,6 +79,9 @@ export const TripInfoSchema: DescItem[] = [
   {
     field: 'cname',
     label: '所属社区',
+    render: (_, data) => {
+      return data.applicantInfo.cname;
+    },
   },
   {
     field: 'startTime',
