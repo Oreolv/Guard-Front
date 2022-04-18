@@ -1,19 +1,10 @@
-import { TimeStamp, UserInfo, ResidentInfo } from '/@/api/model/baseModel';
+import { TimeStamp, BasicApplyResult } from '/@/api/model/baseModel';
 
-export interface VisitorItem extends TimeStamp {
-  id: number;
-  status: number;
-  applicant: number;
+export interface VisitorItem extends TimeStamp, BasicApplyResult {
   visitor: string;
   foreign: number;
   address: string;
   healthCode: string;
-  approver: number;
-  approverInfo: UserInfo;
-  applicantInfo: ResidentInfo;
-  description: string;
-  startTime: string;
-  endTime: string;
 }
 
 export interface UpdateVisitorParams {

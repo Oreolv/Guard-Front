@@ -1,16 +1,6 @@
-import { TimeStamp, UserInfo, ResidentInfo } from '/@/api/model/baseModel';
+import { TimeStamp, BasicApplyResult } from '/@/api/model/baseModel';
 
-export interface TripItem extends TimeStamp {
-  id: number;
-  status: number;
-  approver: number;
-  applicant: number;
-  approverInfo: UserInfo;
-  applicantInfo: ResidentInfo;
-  description: string;
-  startTime: string;
-  endTime: string;
-  approveTime: string;
+export interface TripItem extends TimeStamp, BasicApplyResult {
   vehicle: number;
   vehicleNo: string;
   vehicleSeat: string;

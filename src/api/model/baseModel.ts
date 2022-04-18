@@ -25,3 +25,16 @@ export interface ResidentInfo {
   uphone: string;
   cname: string;
 }
+
+export interface BasicApplyResult {
+  id: number;
+  status: number;
+  approver: number;
+  applicant: number;
+  approverInfo: UserInfo;
+  applicantInfo: ResidentInfo;
+  description: string;
+  startTime: string;
+  endTime: string;
+  approveTime: string;
+}
