@@ -63,6 +63,27 @@ const dashboard: AppRouteModule = {
       },
       component: () => import('/@/views/personnel/trip/TripDetail.vue'),
     },
+    {
+      path: 'back',
+      name: 'BackManagement',
+      component: () => import('/@/views/personnel/back/index.vue'),
+      meta: {
+        title: '返乡报备',
+        ignoreKeepAlive: false,
+      },
+    },
+    {
+      path: 'back_detail/:id',
+      name: 'BackDetail',
+      meta: {
+        title: '查看详情',
+        hideMenu: true,
+        showMenu: false,
+        ignoreKeepAlive: true,
+        currentActiveMenu: '/personnel/back',
+      },
+      component: () => import('/@/views/personnel/back/BackDetail.vue'),
+    },
   ],
 };
 
