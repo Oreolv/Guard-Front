@@ -21,7 +21,7 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '申请人',
-    dataIndex: 'uname',
+    dataIndex: 'applicant',
     width: 120,
     customRender: ({ record }) => {
       return record.applicantInfo.uname;
