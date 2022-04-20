@@ -84,6 +84,15 @@ const dashboard: AppRouteModule = {
       },
       component: () => import('/@/views/personnel/back/BackDetail.vue'),
     },
+    {
+      path: 'abnormal',
+      name: 'AbnormalManagement',
+      component: () => import('/@/views/personnel/abnormal/index.vue'),
+      meta: {
+        title: '异常报备',
+        ignoreKeepAlive: false,
+      },
+    },
   ],
 };
 
