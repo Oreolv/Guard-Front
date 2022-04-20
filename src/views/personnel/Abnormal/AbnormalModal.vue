@@ -7,13 +7,15 @@
     :canFullscreen="false"
     :minHeight="20"
   >
-    <div v-if="isAccept">确认通过此行程报备？</div>
-    <div v-else>
+    <div v-if="isUpdate">
       <Textarea
         v-model:value="description"
-        placeholder="请输入拒绝理由"
+        placeholder="请输入回复意见"
         :auto-size="{ minRows: 2, maxRows: 5 }"
       />
+    </div>
+    <div v-else>
+      {{ description }}
     </div>
   </BasicModal>
 </template>
@@ -23,23 +25,23 @@
   import { Textarea } from 'ant-design-vue';
   import { updateAbnormal } from '/@/api/personnel/abnormal';
   import { ApplyStatusEnum } from '/@/enums/personnelEnum';
-
-  const emit = defineEmits(['success', 'register']);
-  const isAccept = ref(true);
-  const abnormalId = ref(1);
+  const id = ref();
   const description = ref('');
+  const isUpdate = ref(true);
+  const emit = defineEmits(['success', 'register']);
 
   const [registerModal, { setModalProps, closeModal }] = useModalInner((data) => {
-    isAccept.value = !!data?.isAccept;
-    abnormalId.value = data.abnormalId;
+    id.value = data?.id;
+    isUpdate.value = !!data?.isUpdate;
+    description.value = data?.description;
   });
 
   async function handleSubmit() {
     try {
       const params = {
-        id: abnormalId.value,
-        status: isAccept.value ? ApplyStatusEnum.approval : ApplyStatusEnum.reject,
+        id: id.value,
         description: description.value,
+        status: ApplyStatusEnum.approval,
       };
       setModalProps({ confirmLoading: true });
       await updateAbnormal(params);

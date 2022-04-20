@@ -11,7 +11,7 @@ export interface AbnormalItem extends TimeStamp, BasicApplyResult {
 
 export interface UpdateAbnormalParams {
   id: number;
-  status: number;
+  status?: number;
   description: string;
 }
 

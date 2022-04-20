@@ -21,6 +21,7 @@ export const columns: BasicColumn[] = [
   {
     title: '是否确诊',
     dataIndex: 'diagnosis',
+    width: 80,
     customRender: ({ record }) => {
       const color = record.diagnosis === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
       const text = record.diagnosis === StatusEnum.NO ? '否' : '是';
@@ -30,6 +31,7 @@ export const columns: BasicColumn[] = [
   {
     title: '是否密接',
     dataIndex: 'contact',
+    width: 80,
     customRender: ({ record }) => {
       const color = record.contact === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
       const text = record.contact === StatusEnum.NO ? '否' : '是';
@@ -37,8 +39,9 @@ export const columns: BasicColumn[] = [
     },
   },
   {
-    title: '是否有症状',
+    title: '是否有疑似症状',
     dataIndex: 'symptom',
+    width: 150,
     customRender: ({ record }) => {
       const color = record.symptom === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
       const text = record.symptom === StatusEnum.NO ? '否' : '是';
@@ -46,8 +49,9 @@ export const columns: BasicColumn[] = [
     },
   },
   {
-    title: '前往医院',
+    title: '是否前往医院',
     dataIndex: 'hospital',
+    width: 120,
   },
   {
     title: '审批人',
@@ -65,19 +69,15 @@ export const columns: BasicColumn[] = [
       let color, text;
       switch (record.status) {
         case ApplyStatusEnum.approval:
-          text = '已通过';
+          text = '已回复';
           color = ResultColor.SUCCESS;
           break;
         case ApplyStatusEnum.underReview:
-          text = '待审核';
+          text = '待回复';
           color = ResultColor.WARNING;
           break;
-        case ApplyStatusEnum.reject:
-          text = '已拒绝';
-          color = ResultColor.ERROR;
-          break;
         default:
-          text = '已通过';
+          text = '已回复';
           color = ResultColor.SUCCESS;
           break;
       }

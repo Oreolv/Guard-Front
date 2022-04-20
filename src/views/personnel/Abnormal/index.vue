@@ -5,8 +5,18 @@
         <TableAction
           :actions="[
             {
+              ifShow: () => {
+                return record.approveTime == null;
+              },
               label: '回复',
               onClick: handleReply.bind(null, record),
+            },
+            {
+              ifShow: () => {
+                return record.approveTime != null;
+              },
+              label: '详情',
+              onClick: handleInfo.bind(null, record),
             },
           ]"
         />
@@ -32,16 +42,23 @@
     showIndexColumn: true,
     canResize: false,
     actionColumn: {
-      width: 80,
+      width: 60,
       title: '操作',
       dataIndex: 'action',
       slots: { customRender: 'action' },
       fixed: 'right',
     },
   });
-  async function handleReply(record: Recordable) {
+  function handleReply(record: Recordable) {
     openModal(true, {
-      record,
+      isUpdate: true,
+      id: record.id,
+    });
+  }
+  function handleInfo(record: Recordable) {
+    openModal(true, {
+      isUpdate: false,
+      description: record.description,
     });
   }
   function handleSuccess() {
