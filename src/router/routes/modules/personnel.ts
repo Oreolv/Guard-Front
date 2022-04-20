@@ -92,6 +92,14 @@ const dashboard: AppRouteModule = {
         title: '异常报备',
       },
     },
+    {
+      path: 'suggestion',
+      name: 'SuggestionManagement',
+      component: () => import('/@/views/personnel/suggestion/index.vue'),
+      meta: {
+        title: '意见反馈',
+      },
+    },
   ],
 };
 
