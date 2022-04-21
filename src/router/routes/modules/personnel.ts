@@ -108,6 +108,14 @@ const dashboard: AppRouteModule = {
         title: '异常报备',
       },
     },
+    {
+      path: 'material',
+      name: 'MaterialManagement',
+      component: () => import('/@/views/personnel/material/index.vue'),
+      meta: {
+        title: '物资申请',
+      },
+    },
   ],
 };
 
