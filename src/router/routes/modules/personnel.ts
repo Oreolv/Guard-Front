@@ -116,6 +116,14 @@ const dashboard: AppRouteModule = {
         title: '物资申请',
       },
     },
+    {
+      path: 'agency',
+      name: 'AgencyManagement',
+      component: () => import('/@/views/personnel/agency/index.vue'),
+      meta: {
+        title: '事情代办',
+      },
+    },
   ],
 };
 
