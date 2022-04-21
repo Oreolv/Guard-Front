@@ -22,20 +22,20 @@
         />
       </template>
     </BasicTable>
-    <AbnormalModal @register="registerModal" @success="handleSuccess" />
+    <MaterialModal @register="registerModal" @success="handleSuccess" />
   </div>
 </template>
 <script lang="ts" setup>
   import { columns } from './data';
-  import AbnormalModal from './AbnormalModal.vue';
+  import MaterialModal from './MaterialModal.vue';
   import { useModal } from '/@/components/Modal';
-  import { getAbnormalList } from '/@/api/personnel/abnormal';
+  import { getMaterialList } from '/@/api/personnel/material';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
 
   const [registerModal, { openModal }] = useModal();
   const [registerTable, { reload }] = useTable({
-    title: '异常报备列表',
-    api: getAbnormalList,
+    title: '物资申请列表',
+    api: getMaterialList,
     columns,
     striped: false,
     bordered: true,
