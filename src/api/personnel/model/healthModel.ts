@@ -1,7 +1,7 @@
 import { TimeStamp, BasicApplyResult } from '/@/api/model/baseModel';
 import { StatusEnum } from '/@/enums/residentEnum';
 
-export interface AbnormalItem extends TimeStamp, BasicApplyResult {
+export interface HealthItem extends TimeStamp, BasicApplyResult {
   temperature: string;
   diagnosis: StatusEnum;
   contact: StatusEnum;
@@ -9,11 +9,11 @@ export interface AbnormalItem extends TimeStamp, BasicApplyResult {
   hospital: string;
 }
 
-export interface UpdateAbnormalParams {
+export interface UpdateHealthParams {
   id: number;
   status?: number;
   description: string;
 }
 
-export type GetAbnormalListResultModel = AbnormalItem[];
-export type GetAbnormalDetailResultModel = AbnormalItem;
+export type GetHealthListResultModel = HealthItem[];
+export type GetHealthDetailResultModel = HealthItem;

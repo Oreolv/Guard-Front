@@ -22,20 +22,20 @@
         />
       </template>
     </BasicTable>
-    <AbnormalModal @register="registerModal" @success="handleSuccess" />
+    <HealthModal @register="registerModal" @success="handleSuccess" />
   </div>
 </template>
 <script lang="ts" setup>
   import { columns } from './data';
-  import AbnormalModal from './AbnormalModal.vue';
+  import HealthModal from './HealthModal.vue';
   import { useModal } from '/@/components/Modal';
-  import { getAbnormalList } from '/@/api/personnel/abnormal';
+  import { getHealthList } from '/@/api/personnel/health';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
 
   const [registerModal, { openModal }] = useModal();
   const [registerTable, { reload }] = useTable({
-    title: '异常报备列表',
-    api: getAbnormalList,
+    title: '健康上报列表',
+    api: getHealthList,
     columns,
     striped: false,
     bordered: true,

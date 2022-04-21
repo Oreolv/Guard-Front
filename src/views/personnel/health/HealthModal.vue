@@ -23,7 +23,7 @@
   import { ref } from 'vue';
   import { BasicModal, useModalInner } from '/@/components/Modal';
   import { Textarea } from 'ant-design-vue';
-  import { updateAbnormal } from '/@/api/personnel/abnormal';
+  import { updateHealth } from '/@/api/personnel/health';
   import { ApplyStatusEnum } from '/@/enums/personnelEnum';
   const id = ref();
   const description = ref('');
@@ -44,7 +44,7 @@
         status: ApplyStatusEnum.approval,
       };
       setModalProps({ confirmLoading: true });
-      await updateAbnormal(params);
+      await updateHealth(params);
       closeModal();
       emit('success');
     } finally {
