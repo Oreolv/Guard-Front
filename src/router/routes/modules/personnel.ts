@@ -100,6 +100,14 @@ const dashboard: AppRouteModule = {
         title: '意见反馈',
       },
     },
+    {
+      path: 'abnormal',
+      name: 'AbnormalManagement',
+      component: () => import('/@/views/personnel/abnormal/index.vue'),
+      meta: {
+        title: '异常报备',
+      },
+    },
   ],
 };
 
