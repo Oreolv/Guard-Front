@@ -128,7 +128,6 @@
 
   async function handleLogin() {
     const data = await validForm();
-    console.log(formData.username);
 
     if (!data) return;
     try {
@@ -149,7 +148,7 @@
         userStore.rememberMe = rememberMe.value;
         notification.success({
           message: t('sys.login.loginSuccessTitle'),
-          description: `${t('sys.login.loginSuccessDesc')}: ${userInfo.realName}`,
+          description: `${t('sys.login.loginSuccessDesc')}: ${userInfo.real_name}`,
           duration: 3,
         });
       }

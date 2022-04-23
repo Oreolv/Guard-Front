@@ -4,7 +4,7 @@ export interface VisitorItem extends TimeStamp, BasicApplyResult {
   visitor: string;
   foreign: number;
   address: string;
-  healthCode: string;
+  health_code: string;
 }
 
 export interface UpdateVisitorParams {

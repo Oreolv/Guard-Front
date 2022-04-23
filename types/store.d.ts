@@ -32,7 +32,7 @@ export interface ErrorLogInfo {
 
 export interface UserInfo {
   userId: string | number;
-  realName: string;
+  real_name: string;
   avatar: string;
   roles: RoleInfo[];
   cname?: string;

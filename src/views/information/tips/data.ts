@@ -22,7 +22,7 @@ export const columns: BasicColumn[] = [
     dataIndex: 'publisher',
     width: 100,
     customRender: ({ record }) => {
-      return record.publisherInfo.realName;
+      return record.publisherInfo.real_name;
     },
   },
   {
@@ -54,7 +54,7 @@ export const TipsInfoSchema: DescItem[] = [
     label: '发布人',
     field: 'publisher',
     render: (_, data) => {
-      return data.publisherInfo.realName;
+      return data.publisherInfo.real_name;
     },
   },
   {

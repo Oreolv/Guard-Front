@@ -26,7 +26,7 @@ export const settingList = [
 // 基础设置 form
 export const baseSetschemas: FormSchema[] = [
   {
-    field: 'realName',
+    field: 'real_name',
     component: 'Input',
     label: '真实姓名',
     colProps: { span: 15 },

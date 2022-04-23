@@ -3,11 +3,11 @@ import { VehicleEnum, HealthEnum as RiskStatusEnum } from '/@/enums/residentEnum
 
 export interface BackItem extends TimeStamp, BasicApplyResult {
   vehicle: VehicleEnum;
-  vehicleNo: string;
-  vehicleSeat: string;
-  riskStatus: RiskStatusEnum;
-  healthCode: string[];
-  comeFrom: string;
+  vehicle_no: string;
+  vehicle_seat: string;
+  risk_status: RiskStatusEnum;
+  health_code: string[];
+  come_from: string;
 }
 
 export interface UpdateBackParams {

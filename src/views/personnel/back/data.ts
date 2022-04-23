@@ -4,17 +4,17 @@ import { ResultColor } from '/@/enums/colorEnum';
 import { BasicColumn } from '/@/components/Table';
 import { DescItem } from '/@/components/Description';
 import { ApplyStatusEnum } from '/@/enums/personnelEnum';
-import { VehicleEnum, HealthEnum as riskStatusEnum } from '/@/enums/residentEnum';
+import { VehicleEnum, HealthEnum as risk_statusEnum } from '/@/enums/residentEnum';
 import { createImgPreview, ImagePreview } from '/@/components/Preview/index';
 
 export const columns: BasicColumn[] = [
   {
     title: '出发地区',
-    dataIndex: 'comeFrom',
+    dataIndex: 'come_from',
   },
   {
     title: '到达时间',
-    dataIndex: 'endTime',
+    dataIndex: 'end_time',
   },
   {
     title: '申请人',
@@ -77,22 +77,22 @@ export const BackInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'comeFrom',
+    field: 'come_from',
     label: '出发地区',
   },
   {
-    field: 'riskStatus',
+    field: 'risk_status',
     label: '地区风险',
     render: (val) => {
       let text;
       switch (val.status) {
-        case riskStatusEnum.low:
+        case risk_statusEnum.low:
           text = '低风险';
           break;
-        case riskStatusEnum.middle:
+        case risk_statusEnum.middle:
           text = '中风险';
           break;
-        case riskStatusEnum.high:
+        case risk_statusEnum.high:
           text = '高风险';
           break;
         default:
@@ -103,7 +103,7 @@ export const BackInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'endTime',
+    field: 'end_time',
     label: '到达时间',
   },
   {
@@ -135,15 +135,15 @@ export const BackInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'vehicleNo',
+    field: 'vehicle_no',
     label: '车牌/车次号',
   },
   {
-    field: 'vehicleSeat',
+    field: 'vehicle_seat',
     label: '座位号',
   },
   {
-    field: 'healthCode',
+    field: 'health_code',
     label: '两码截图',
     render: (val) => {
       const imgList = val.split(',');
@@ -172,10 +172,10 @@ export const BackInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'approveTime',
+    field: 'approve_time',
     label: '审批时间',
     render: (_, data) => {
-      return data.approveTime ? data.approveTime : '待审批';
+      return data.approve_time ? data.approve_time : '待审批';
     },
   },
 ];

@@ -13,11 +13,11 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '开始时间',
-    dataIndex: 'startTime',
+    dataIndex: 'start_time',
   },
   {
     title: '结束时间',
-    dataIndex: 'endTime',
+    dataIndex: 'end_time',
   },
   {
     title: '申请人',
@@ -77,15 +77,15 @@ export const VisitorInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'startTime',
+    field: 'start_time',
     label: '开始时间',
   },
   {
-    field: 'endTime',
+    field: 'end_time',
     label: '结束时间',
   },
   {
-    field: 'comeFrom',
+    field: 'come_from',
     label: '家庭住址',
   },
   {
@@ -100,7 +100,7 @@ export const VisitorInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'healthCode',
+    field: 'health_code',
     label: '两码截图',
     render: (val) => {
       const imgList = val.split(',');
@@ -129,10 +129,10 @@ export const VisitorInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'approveTime',
+    field: 'approve_time',
     label: '审批时间',
     render: (_, data) => {
-      return data.approveTime ? data.approveTime : '待审批';
+      return data.approve_time ? data.approve_time : '待审批';
     },
   },
 ];

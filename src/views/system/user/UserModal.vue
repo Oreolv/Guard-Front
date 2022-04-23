@@ -40,7 +40,7 @@
   async function handleSubmit() {
     try {
       const values = await validate();
-      values.roleId = values.roles.value;
+      values.role_id = values.roles.value;
       setModalProps({ confirmLoading: true });
       if (getTitle.value === '新增用户') {
         await createNewUser(values);

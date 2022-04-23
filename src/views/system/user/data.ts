@@ -10,7 +10,7 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '真实姓名',
-    dataIndex: 'realName',
+    dataIndex: 'real_name',
     width: 180,
   },
   {
@@ -35,7 +35,7 @@ export const formSchema: FormSchema[] = [
     required: true,
   },
   {
-    field: 'realName',
+    field: 'real_name',
     label: '真实姓名',
     component: 'Input',
     required: true,
@@ -47,7 +47,7 @@ export const formSchema: FormSchema[] = [
     componentProps: {
       api: getRoleList,
       labelInValue: true,
-      labelField: 'roleName',
+      labelField: 'role_name',
       valueField: 'id',
     },
     required: true,
@@ -67,12 +67,12 @@ export const searchFormSchema: FormSchema[] = [
     colProps: { span: 8 },
   },
   {
-    field: 'roleValue',
+    field: 'role_value',
     label: '用户角色',
     component: 'ApiSelect',
     componentProps: {
       api: getRoleList,
-      labelField: 'roleName',
+      labelField: 'role_name',
       valueField: 'id',
     },
     colProps: { span: 8 },

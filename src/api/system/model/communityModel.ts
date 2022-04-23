@@ -3,7 +3,7 @@ import { TimeStamp } from '/@/api/model/baseModel';
 interface Users {
   id: number;
   username: string;
-  realName: string;
+  real_name: string;
 }
 export interface CommunityListItem extends TimeStamp {
   id: number;

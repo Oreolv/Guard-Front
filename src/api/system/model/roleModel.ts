@@ -1,13 +1,13 @@
 export interface RoleListItem {
   id: number;
-  roleName: string;
-  roleValue: string;
+  role_name: string;
+  role_value: string;
   description: string;
 }
 
 export interface CreateRoleParams {
-  roleName: string;
-  roleValue: string;
+  role_name: string;
+  role_value: string;
   description?: string;
 }
 

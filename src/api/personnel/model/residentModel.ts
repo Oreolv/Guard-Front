@@ -10,7 +10,7 @@ export interface GetResidentListResultModel extends TimeStamp {
   id: number;
   openid: string;
   avatar: string;
-  nickName: string;
+  nick_name: string;
   uname: string;
   usex: SexEnum;
   uphone: string;
@@ -19,19 +19,19 @@ export interface GetResidentListResultModel extends TimeStamp {
   bnum: string;
   hnum: string;
   hname: string;
-  idCard: string;
+  id_card: string;
   company: string;
-  foreignStatus: StatusEnum;
+  foreign_status: StatusEnum;
   trip: string | string[];
-  riskStatus: StatusEnum;
+  risk_status: StatusEnum;
   vehicle: VehicleEnum;
-  vehicleNo: string;
-  vehicleSeat: string;
-  healthStatus: HealthEnum;
-  isolationStatus: StatusEnum;
-  accessStatus: StatusEnum;
-  isolationStart: string;
-  isolationEnd: string;
+  vehicle_no: string;
+  vehicle_seat: string;
+  health_status: HealthEnum;
+  isolation_status: StatusEnum;
+  access_status: StatusEnum;
+  isolation_start: string;
+  isolation_end: string;
   administrator: UserItem;
   recorder: UserItem;
 }

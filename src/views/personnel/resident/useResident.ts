@@ -17,10 +17,10 @@ export const resetModalStyle = (flag: boolean) => {
 
 export const transformTableData = (i) => {
   i.usex = i.usex === 0 ? '男' : '女';
-  i.foreignStatus = i.foreignStatus === 0 ? '否' : '是';
-  i.riskStatus = i.riskStatus === 0 ? '否' : '是';
-  i.isolationStatus = i.isolationStatus === 0 ? '否' : '是';
-  i.accessStatus = i.accessStatus === 0 ? '否' : '是';
+  i.foreign_status = i.foreign_status === 0 ? '否' : '是';
+  i.risk_status = i.risk_status === 0 ? '否' : '是';
+  i.isolation_status = i.isolation_status === 0 ? '否' : '是';
+  i.access_status = i.access_status === 0 ? '否' : '是';
   switch (i.vehicle) {
     case 0:
       i.vehicle = '自驾';
@@ -40,15 +40,15 @@ export const transformTableData = (i) => {
     default:
       break;
   }
-  switch (i.healthStatus) {
+  switch (i.health_status) {
     case 0:
-      i.healthStatus = '低风险';
+      i.health_status = '低风险';
       break;
     case 1:
-      i.healthStatus = '中风险';
+      i.health_status = '中风险';
       break;
     case 2:
-      i.healthStatus = '高风险';
+      i.health_status = '高风险';
       break;
     default:
       break;

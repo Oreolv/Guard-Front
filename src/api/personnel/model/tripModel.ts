@@ -2,8 +2,8 @@ import { TimeStamp, BasicApplyResult } from '/@/api/model/baseModel';
 
 export interface TripItem extends TimeStamp, BasicApplyResult {
   vehicle: number;
-  vehicleNo: string;
-  vehicleSeat: string;
+  vehicle_no: string;
+  vehicle_seat: string;
 }
 
 export interface UpdateTripParams {

@@ -13,11 +13,11 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '开始时间',
-    dataIndex: 'startTime',
+    dataIndex: 'start_time',
   },
   {
     title: '结束时间',
-    dataIndex: 'endTime',
+    dataIndex: 'end_time',
   },
   {
     title: '申请人',
@@ -84,11 +84,11 @@ export const TripInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'startTime',
+    field: 'start_time',
     label: '开始时间',
   },
   {
-    field: 'endTime',
+    field: 'end_time',
     label: '结束时间',
   },
   {
@@ -120,11 +120,11 @@ export const TripInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'vehicleNo',
+    field: 'vehicle_no',
     label: '车牌/车次号',
   },
   {
-    field: 'vehicleSeat',
+    field: 'vehicle_seat',
     label: '座位号',
   },
   {
@@ -135,10 +135,10 @@ export const TripInfoSchema: DescItem[] = [
     },
   },
   {
-    field: 'approveTime',
+    field: 'approve_time',
     label: '审批时间',
     render: (_, data) => {
-      return data.approveTime ? data.approveTime : '待审批';
+      return data.approve_time ? data.approve_time : '待审批';
     },
   },
 ];

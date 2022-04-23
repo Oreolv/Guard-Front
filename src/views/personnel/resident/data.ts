@@ -52,7 +52,7 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '身份证',
-    dataIndex: 'idCard',
+    dataIndex: 'id_card',
   },
   {
     title: '工作单位',
@@ -60,12 +60,12 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '是否是当地居民',
-    dataIndex: 'foreignStatus',
+    dataIndex: 'foreign_status',
     width: 100,
     customRender: ({ record }) => {
       const color =
-        record.foreignStatus === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
-      const text = record.foreignStatus === StatusEnum.NO ? '否' : '是';
+        record.foreign_status === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
+      const text = record.foreign_status === StatusEnum.NO ? '否' : '是';
       return h(Tag, { color: color }, () => text);
     },
     filters: [
@@ -78,15 +78,15 @@ export const columns: BasicColumn[] = [
         value: String(StatusEnum.NO),
       },
     ],
-    onFilter: (value: string, record: Recordable) => record.foreignStatus == value,
+    onFilter: (value: string, record: Recordable) => record.foreign_status == value,
   },
   {
     title: '是否旅居风险地区',
-    dataIndex: 'riskStatus',
+    dataIndex: 'risk_status',
     width: 100,
     customRender: ({ record }) => {
-      const color = record.riskStatus === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
-      const text = record.riskStatus === StatusEnum.NO ? '否' : '是';
+      const color = record.risk_status === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
+      const text = record.risk_status === StatusEnum.NO ? '否' : '是';
       return h(Tag, { color: color }, () => text);
     },
     filters: [
@@ -99,15 +99,15 @@ export const columns: BasicColumn[] = [
         value: String(StatusEnum.NO),
       },
     ],
-    onFilter: (value: string, record: Recordable) => record.riskStatus == value,
+    onFilter: (value: string, record: Recordable) => record.risk_status == value,
   },
   {
     title: '健康状态',
-    dataIndex: 'healthStatus',
+    dataIndex: 'health_status',
     width: 100,
     customRender: ({ record }) => {
       let color, text;
-      switch (record.healthStatus) {
+      switch (record.health_status) {
         case HealthEnum.low:
           text = '低风险';
           color = ResultColor.SUCCESS;
@@ -141,16 +141,16 @@ export const columns: BasicColumn[] = [
         value: String(HealthEnum.high),
       },
     ],
-    onFilter: (value: string, record: Recordable) => record.healthStatus == value,
+    onFilter: (value: string, record: Recordable) => record.health_status == value,
   },
   {
     title: '是否被隔离',
-    dataIndex: 'isolationStatus',
+    dataIndex: 'isolation_status',
     width: 110,
     customRender: ({ record }) => {
       const color =
-        record.isolationStatus === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
-      const text = record.isolationStatus === StatusEnum.NO ? '否' : '是';
+        record.isolation_status === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
+      const text = record.isolation_status === StatusEnum.NO ? '否' : '是';
       return h(Tag, { color: color }, () => text);
     },
     filters: [
@@ -163,15 +163,16 @@ export const columns: BasicColumn[] = [
         value: String(StatusEnum.NO),
       },
     ],
-    onFilter: (value: string, record: Recordable) => record.isolationStatus == value,
+    onFilter: (value: string, record: Recordable) => record.isolation_status == value,
   },
   {
     title: '是否限制出入',
-    dataIndex: 'accessStatus',
+    dataIndex: 'access_status',
     width: 100,
     customRender: ({ record }) => {
-      const color = record.accessStatus === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
-      const text = record.accessStatus === StatusEnum.NO ? '否' : '是';
+      const color =
+        record.access_status === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
+      const text = record.access_status === StatusEnum.NO ? '否' : '是';
       return h(Tag, { color: color }, () => text);
     },
     filters: [
@@ -184,7 +185,7 @@ export const columns: BasicColumn[] = [
         value: String(StatusEnum.NO),
       },
     ],
-    onFilter: (value: string, record: Recordable) => record.accessStatus == value,
+    onFilter: (value: string, record: Recordable) => record.access_status == value,
   },
 ];
 
@@ -237,7 +238,7 @@ export const ResidentInfoSchema: DescItem[] = [
     label: '门牌号',
   },
   {
-    field: 'idCard',
+    field: 'id_card',
     label: '身份证',
     contentMinWidth: 200,
   },
@@ -247,7 +248,7 @@ export const ResidentInfoSchema: DescItem[] = [
     contentMinWidth: 200,
   },
   {
-    field: 'foreignStatus',
+    field: 'foreign_status',
     label: '是否为当地居民',
   },
   {
@@ -255,7 +256,7 @@ export const ResidentInfoSchema: DescItem[] = [
     label: '是否有异地旅行史',
   },
   {
-    field: 'riskStatus',
+    field: 'risk_status',
     label: '是否旅居风险地区',
   },
   {
@@ -264,41 +265,41 @@ export const ResidentInfoSchema: DescItem[] = [
     show: (data) => (data.trip === '无' ? false : true),
   },
   {
-    field: 'vehicleNo',
+    field: 'vehicle_no',
     label: '乘坐车牌/车次/航班号',
     show: (data) => (data.trip === '无' ? false : true),
   },
   {
-    field: 'vehicleSeat',
+    field: 'vehicle_seat',
     label: '乘坐座位号',
     show: (data) => (data.trip === '无' ? false : true),
   },
   {
-    field: 'healthStatus',
+    field: 'health_status',
     label: '健康状态',
   },
   {
-    field: 'isolationStatus',
+    field: 'isolation_status',
     label: '是否被隔离',
   },
   {
-    field: 'accessStatus',
+    field: 'access_status',
     label: '是否限制出入',
   },
   {
-    field: 'isolationStart',
+    field: 'isolation_start',
     label: '隔离开始时间',
-    show: (data) => (data.isolationStatus === '否' ? false : true),
+    show: (data) => (data.isolation_status === '否' ? false : true),
   },
   {
-    field: 'isolationEnd',
+    field: 'isolation_end',
     label: '隔离结束时间',
-    show: (data) => (data.isolationStatus === '否' ? false : true),
+    show: (data) => (data.isolation_status === '否' ? false : true),
   },
   {
     field: 'administrator',
     label: '隔离负责人',
-    show: (data) => (data.isolationStatus === '否' ? false : true),
+    show: (data) => (data.isolation_status === '否' ? false : true),
   },
   {
     field: 'recorder',
@@ -394,7 +395,7 @@ export const ResidentFormSchema: FormSchema[] = [
     component: 'Input',
   },
   {
-    field: 'idCard',
+    field: 'id_card',
     label: '身份证',
     component: 'Input',
     dynamicRules: () => {
@@ -418,7 +419,7 @@ export const ResidentFormSchema: FormSchema[] = [
     component: 'Input',
   },
   {
-    field: 'foreignStatus',
+    field: 'foreign_status',
     label: '是否为当地居民',
     required: true,
     component: 'Select',
@@ -438,7 +439,7 @@ export const ResidentFormSchema: FormSchema[] = [
     },
   },
   {
-    field: 'riskStatus',
+    field: 'risk_status',
     label: '是否旅居风险地区',
     required: true,
     component: 'Select',
@@ -501,7 +502,7 @@ export const ResidentFormSchema: FormSchema[] = [
     },
   },
   {
-    field: 'vehicleNo',
+    field: 'vehicle_no',
     label: '乘坐车牌/车次/航班号',
     component: 'Input',
     show: (data) => {
@@ -509,7 +510,7 @@ export const ResidentFormSchema: FormSchema[] = [
     },
   },
   {
-    field: 'vehicleSeat',
+    field: 'vehicle_seat',
     label: '乘坐座位号',
     component: 'Input',
     show: (data) => {
@@ -517,7 +518,7 @@ export const ResidentFormSchema: FormSchema[] = [
     },
   },
   {
-    field: 'healthStatus',
+    field: 'health_status',
     label: '健康状态',
     required: true,
     component: 'Select',
@@ -542,7 +543,7 @@ export const ResidentFormSchema: FormSchema[] = [
     },
   },
   {
-    field: 'isolationStatus',
+    field: 'isolation_status',
     label: '是否被隔离',
     required: true,
     component: 'Select',
@@ -562,20 +563,20 @@ export const ResidentFormSchema: FormSchema[] = [
     },
   },
   {
-    field: 'isolationStart',
+    field: 'isolation_start',
     label: '隔离开始时间',
     component: 'DatePicker',
     show: (data) => {
-      return data.values.isolationStatus === StatusEnum.YES ? true : false;
+      return data.values.isolation_status === StatusEnum.YES ? true : false;
     },
   },
   {
-    field: 'isolationEnd',
+    field: 'isolation_end',
     label: '隔离结束时间',
     component: 'DatePicker',
 
     show: (data) => {
-      return data.values.isolationStatus === StatusEnum.YES ? true : false;
+      return data.values.isolation_status === StatusEnum.YES ? true : false;
     },
   },
   {
@@ -588,11 +589,11 @@ export const ResidentFormSchema: FormSchema[] = [
       valueField: 'id',
     },
     show: (data) => {
-      return data.values.isolationStatus === StatusEnum.YES ? true : false;
+      return data.values.isolation_status === StatusEnum.YES ? true : false;
     },
   },
   {
-    field: 'accessStatus',
+    field: 'access_status',
     label: '是否限制出入',
     required: true,
     component: 'Select',

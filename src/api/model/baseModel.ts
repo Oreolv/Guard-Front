@@ -16,7 +16,7 @@ export interface TimeStamp {
 
 export interface UserInfo {
   username: string;
-  realName: string;
+  real_name: string;
   avatar: string;
 }
 
@@ -34,7 +34,7 @@ export interface BasicApplyResult {
   approverInfo: UserInfo;
   applicantInfo: ResidentInfo;
   description: string;
-  startTime: string;
-  endTime: string;
-  approveTime: string;
+  start_time: string;
+  end_time: string;
+  approve_time: string;
 }

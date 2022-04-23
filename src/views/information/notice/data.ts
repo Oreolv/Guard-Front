@@ -43,7 +43,7 @@ export const columns: BasicColumn[] = [
     dataIndex: 'publisher',
     width: 120,
     customRender: ({ record }) => {
-      return record.publisherInfo.realName;
+      return record.publisherInfo.real_name;
     },
   },
   {
@@ -90,7 +90,7 @@ export const NoticeInfoSchema: DescItem[] = [
     field: 'publisher',
     labelMinWidth: 120,
     render: (_, data) => {
-      return data.publisherInfo.realName;
+      return data.publisherInfo.real_name;
     },
   },
   {

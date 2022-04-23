@@ -4,12 +4,12 @@ import { FormSchema } from '/@/components/Table';
 export const columns: BasicColumn[] = [
   {
     title: '角色名称',
-    dataIndex: 'roleName',
+    dataIndex: 'role_name',
     width: 200,
   },
   {
     title: '角色值',
-    dataIndex: 'roleValue',
+    dataIndex: 'role_value',
     width: 180,
   },
   {
@@ -25,13 +25,13 @@ export const columns: BasicColumn[] = [
 
 export const formSchema: FormSchema[] = [
   {
-    field: 'roleName',
+    field: 'role_name',
     label: '角色名称',
     required: true,
     component: 'Input',
   },
   {
-    field: 'roleValue',
+    field: 'role_value',
     label: '角色值',
     required: true,
     component: 'Input',

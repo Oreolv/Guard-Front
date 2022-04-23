@@ -6,14 +6,14 @@
           :actions="[
             {
               ifShow: () => {
-                return record.approveTime == null;
+                return record.approve_time == null;
               },
               label: '回复',
               onClick: handleReply.bind(null, record),
             },
             {
               ifShow: () => {
-                return record.approveTime != null;
+                return record.approve_time != null;
               },
               label: '详情',
               onClick: handleInfo.bind(null, record),

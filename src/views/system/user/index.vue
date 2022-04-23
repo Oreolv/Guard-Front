@@ -47,7 +47,7 @@
     useSearchForm: true,
     afterFetch: (data) => {
       data.forEach((i) => {
-        i.roles = { value: i.roles.id, label: i.roles.roleName };
+        i.roles = { value: i.roles.id, label: i.roles.role_name };
       });
     },
     striped: false,
