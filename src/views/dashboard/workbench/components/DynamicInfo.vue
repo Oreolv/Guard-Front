@@ -3,17 +3,17 @@
     <template #extra>
       <a-button type="link" size="small">更多</a-button>
     </template>
-    <List item-layout="horizontal" :data-source="dynamicInfoItems">
+    <List item-layout="horizontal" :data-source="state.dynamicInfoItems">
       <template #renderItem="{ item }">
         <ListItem>
           <ListItemMeta>
             <template #description>
-              {{ item.date }}
+              <Time :value="item.date" />
             </template>
             <!-- eslint-disable-next-line -->
             <template #title> {{ item.name }} <span v-html="item.desc"> </span> </template>
             <template #avatar>
-              <Icon :icon="item.avatar" :size="30" />
+              <Avatar :src="item.avatar" :size="30" />
             </template>
           </ListItemMeta>
         </ListItem>
@@ -22,9 +22,27 @@
   </Card>
 </template>
 <script lang="ts" setup>
-  import { Card, List } from 'ant-design-vue';
-  import { dynamicInfoItems } from './data';
-  import { Icon } from '/@/components/Icon';
+  import { Card, List, Avatar } from 'ant-design-vue';
+  import { DynamicInfoItem, methodInfo, userGroupInfo } from './data';
+  import { getUlogList } from '/@/api/dashboard/log';
+  import { onBeforeMount, reactive } from 'vue';
+  import { Time } from '/@/components/Time';
+
+  const state = reactive({
+    dynamicInfoItems: [] as DynamicInfoItem[],
+  });
+
+  onBeforeMount(async () => {
+    const data = await getUlogList();
+    data.map((d) => {
+      state.dynamicInfoItems.push({
+        name: d.userInfo.real_name,
+        date: d.createdAt,
+        desc: `${methodInfo[d.method]} ${userGroupInfo[d.group]}`,
+        avatar: d.userInfo.avatar,
+      });
+    });
+  });
 
   const ListItem = List.Item;
   const ListItemMeta = List.Item.Meta;

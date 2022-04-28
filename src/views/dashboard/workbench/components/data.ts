@@ -13,7 +13,7 @@ interface NavItem {
   color: string;
 }
 
-interface DynamicInfoItem {
+export interface DynamicInfoItem {
   avatar: string;
   name: string;
   date: string;
@@ -154,3 +154,27 @@ export const groupItems: GroupItem[] = [
     date: '2021-04-01',
   },
 ];
+
+export const methodInfo = {
+  POST: '创建了',
+  PUT: '修改了',
+  DELETE: '删除了',
+};
+
+export const userGroupInfo = {
+  notice: '社区公告',
+  tips: '防疫知识',
+  news: '疫情新闻',
+  resident: '居民信息',
+  visitor: '访客审批',
+  trip: '行程审批',
+  back: '返乡报备',
+  health: '健康上报',
+  suggestion: '意见反馈',
+  abnormal: '异常报备',
+  material: '物资申请',
+  agency: '事情代办',
+  users: '用户列表',
+  role: '角色列表',
+  community: '社区列表',
+};

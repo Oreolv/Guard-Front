@@ -9,9 +9,9 @@ export interface BasicFetchResult<T> {
 }
 
 export interface TimeStamp {
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt: Date;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string;
 }
 
 export interface UserInfo {
