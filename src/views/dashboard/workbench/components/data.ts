@@ -11,6 +11,7 @@ interface NavItem {
   title: string;
   icon: string;
   color: string;
+  url: string;
 }
 
 export interface DynamicInfoItem {
@@ -25,31 +26,31 @@ export const navItems: NavItem[] = [
     title: '首页',
     icon: 'ion:home-outline',
     color: '#1fdaca',
+    url: '/dashboard',
   },
   {
-    title: '仪表盘',
-    icon: 'ion:grid-outline',
+    title: '居民管理',
+    icon: 'ant-design:user-outlined',
     color: '#bf0c2c',
+    url: '/personnel/resident',
   },
   {
-    title: '组件',
-    icon: 'ion:layers-outline',
+    title: '意见反馈',
+    icon: 'ant-design:message-outlined',
     color: '#e18525',
+    url: '/personnel/suggestion',
   },
   {
-    title: '系统管理',
+    title: '异常报备',
+    icon: 'ant-design:warning-outlined',
+    color: '#4daf1bc9',
+    url: '/personnel/abnormal',
+  },
+  {
+    title: '个人设置',
     icon: 'ion:settings-outline',
     color: '#3fb27f',
-  },
-  {
-    title: '权限管理',
-    icon: 'ion:key-outline',
-    color: '#4daf1bc9',
-  },
-  {
-    title: '图表',
-    icon: 'ion:bar-chart-outline',
-    color: '#00d8ff',
+    url: '/system/account',
   },
 ];
 
