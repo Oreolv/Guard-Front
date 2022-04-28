@@ -17,7 +17,7 @@ export interface RlogListItem extends TimeStamp {
   members: string;
   params: string;
   userId: number;
-  residentInfo: ResidentInfo;
+  userInfo: ResidentInfo;
 }
 
 export type GetUlogListResultModel = UlogListItem[];
