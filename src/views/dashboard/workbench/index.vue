@@ -3,8 +3,9 @@
     <template #headerContent> <WorkbenchHeader /> </template>
     <div class="lg:flex">
       <div class="lg:w-7/10 w-full !mr-4 enter-y">
-        <ProjectCard :loading="loading" class="enter-y" />
-        <DynamicInfo :loading="loading" class="!my-4 enter-y" />
+        <!-- <ProjectCard :loading="loading" class="enter-y" /> -->
+        <DynamicInfo :loading="loading" class="!mb-4 enter-y" />
+        <ResidentApply :loading="loading" class="!my-4 enter-y" />
       </div>
       <div class="lg:w-3/10 w-full enter-y">
         <QuickNav :loading="loading" class="enter-y" />
@@ -24,6 +25,7 @@
   import ProjectCard from './components/ProjectCard.vue';
   import QuickNav from './components/QuickNav.vue';
   import DynamicInfo from './components/DynamicInfo.vue';
+  import ResidentApply from './components/ResidentApply.vue';
 
   const loading = ref(true);
 

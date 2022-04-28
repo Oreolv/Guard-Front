@@ -179,3 +179,19 @@ export const UGroupInfo = {
   role: '角色列表',
   community: '社区列表',
 };
+
+export const RGroupInfo = {
+  visitor: '访客申请',
+  trip: '行程报备',
+  back: '返乡报备',
+  health: '健康上报',
+  suggestion: '意见反馈',
+  abnormal: '异常报备',
+  material: '物资申请',
+  agency: '事情代办',
+};
+
+export const RMethodInfo = {
+  POST: '新建了',
+  DELETE: '取消了',
+};
