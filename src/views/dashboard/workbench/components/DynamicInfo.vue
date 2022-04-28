@@ -23,7 +23,7 @@
 </template>
 <script lang="ts" setup>
   import { Card, List, Avatar } from 'ant-design-vue';
-  import { DynamicInfoItem, methodInfo, userGroupInfo } from './data';
+  import { DynamicInfoItem, UMethodInfo, UGroupInfo } from './data';
   import { getUlogList } from '/@/api/dashboard/log';
   import { onBeforeMount, reactive } from 'vue';
   import { Time } from '/@/components/Time';
@@ -38,7 +38,7 @@
       state.dynamicInfoItems.push({
         name: d.userInfo.real_name,
         date: d.createdAt,
-        desc: `${methodInfo[d.method]} ${userGroupInfo[d.group]}`,
+        desc: `${UMethodInfo[d.method]} ${UGroupInfo[d.group]}`,
         avatar: d.userInfo.avatar,
       });
     });

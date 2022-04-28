@@ -156,13 +156,13 @@ export const groupItems: GroupItem[] = [
   },
 ];
 
-export const methodInfo = {
+export const UMethodInfo = {
   POST: '创建了',
   PUT: '修改了',
   DELETE: '删除了',
 };
 
-export const userGroupInfo = {
+export const UGroupInfo = {
   notice: '社区公告',
   tips: '防疫知识',
   news: '疫情新闻',
