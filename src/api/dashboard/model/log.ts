@@ -1,6 +1,6 @@
-import { TimeStamp, UserInfo } from '/@/api/model/baseModel';
+import { TimeStamp, UserInfo, ResidentInfo } from '/@/api/model/baseModel';
 
-export interface LogListItem extends TimeStamp {
+export interface UlogListItem extends TimeStamp {
   id: number;
   method: string;
   group: string;
@@ -10,4 +10,16 @@ export interface LogListItem extends TimeStamp {
   userInfo: UserInfo;
 }
 
-export type GetLogListResultModel = LogListItem[];
+export interface RlogListItem extends TimeStamp {
+  id: number;
+  method: string;
+  group: string;
+  members: string;
+  params: string;
+  userId: number;
+  residentInfo: ResidentInfo;
+}
+
+export type GetUlogListResultModel = UlogListItem[];
+
+export type GetRlogListResultModel = RlogListItem[];

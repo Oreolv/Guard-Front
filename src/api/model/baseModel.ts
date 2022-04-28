@@ -24,6 +24,7 @@ export interface ResidentInfo {
   uname: string;
   uphone: string;
   cname: string;
+  avatar: string;
 }
 
 export interface BasicApplyResult {
