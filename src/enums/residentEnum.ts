@@ -17,7 +17,7 @@ export enum VehicleEnum {
 }
 
 export enum HealthEnum {
-  low = 0,
-  middle = 1,
-  high = 2,
+  LOW = 0,
+  MIDDLE = 1,
+  HIGH = 2,
 }

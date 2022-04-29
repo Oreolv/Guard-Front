@@ -108,15 +108,15 @@ export const columns: BasicColumn[] = [
     customRender: ({ record }) => {
       let color, text;
       switch (record.health_status) {
-        case HealthEnum.low:
+        case HealthEnum.LOW:
           text = '低风险';
           color = ResultColor.SUCCESS;
           break;
-        case HealthEnum.middle:
+        case HealthEnum.MIDDLE:
           text = '中风险';
           color = ResultColor.WARNING;
           break;
-        case HealthEnum.high:
+        case HealthEnum.HIGH:
           text = '高风险';
           color = ResultColor.ERROR;
           break;
@@ -130,15 +130,15 @@ export const columns: BasicColumn[] = [
     filters: [
       {
         text: '低风险',
-        value: String(HealthEnum.low),
+        value: String(HealthEnum.LOW),
       },
       {
         text: '中风险',
-        value: String(HealthEnum.middle),
+        value: String(HealthEnum.MIDDLE),
       },
       {
         text: '高风险',
-        value: String(HealthEnum.high),
+        value: String(HealthEnum.HIGH),
       },
     ],
     onFilter: (value: string, record: Recordable) => record.health_status == value,
@@ -526,18 +526,18 @@ export const ResidentFormSchema: FormSchema[] = [
       options: [
         {
           label: '低风险',
-          value: HealthEnum.low,
-          key: HealthEnum.low,
+          value: HealthEnum.LOW,
+          key: HealthEnum.LOW,
         },
         {
           label: '中风险',
-          value: HealthEnum.middle,
-          key: HealthEnum.middle,
+          value: HealthEnum.MIDDLE,
+          key: HealthEnum.MIDDLE,
         },
         {
           label: '高风险',
-          value: HealthEnum.high,
-          key: HealthEnum.high,
+          value: HealthEnum.HIGH,
+          key: HealthEnum.HIGH,
         },
       ],
     },
