@@ -89,10 +89,6 @@ export const VisitorInfoSchema: DescItem[] = [
     label: '家庭住址',
   },
   {
-    field: 'goTo',
-    label: '去往地址',
-  },
-  {
     field: 'foreign',
     label: '来自异地',
     render: (val) => {

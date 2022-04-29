@@ -56,6 +56,7 @@
     state.visitorDetail = await getVisitorDetail(Number(state.visitorId));
     setDescProps({
       labelStyle: { fontWeight: 'bold' },
+      contentStyle: { textAlign: 'left' },
       data: state.visitorDetail,
       schema: VisitorInfoSchema,
       column: 2,
