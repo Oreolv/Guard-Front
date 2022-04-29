@@ -6,11 +6,11 @@ export interface UserItem {
   name: string;
 }
 
-export interface GetResidentListResultModel extends TimeStamp {
+export interface ResidentItem extends TimeStamp {
   id: number;
   openid: string;
   avatar: string;
-  nick_name: string;
+  nickName: string;
   uname: string;
   usex: SexEnum;
   uphone: string;
@@ -35,3 +35,5 @@ export interface GetResidentListResultModel extends TimeStamp {
   administrator: UserItem;
   recorder: UserItem;
 }
+
+export type GetResidentListResultModel = ResidentItem[];
