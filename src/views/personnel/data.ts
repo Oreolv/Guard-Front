@@ -39,3 +39,7 @@ export const transformData = (data) => {
   });
   return data;
 };
+
+export const vehicleColumns = ['驾车', '大巴', '火车', '高铁', '飞机'];
+
+export const riskStatusColumns = ['低风险', '中风险', , '高风险'];
