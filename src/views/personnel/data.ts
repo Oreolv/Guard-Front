@@ -19,3 +19,23 @@ export const transformStatus = (status) => {
 export const transformForegin = (status) => {
   return status ? '是' : '否';
 };
+
+export const transformData = (data) => {
+  data.map((r) => {
+    for (const i in r) {
+      if (r[i] == null) {
+        r[i] = '无';
+      }
+    }
+    r.approver = r.approverInfo ? r.approverInfo.real_name : null;
+    r.applicant = r.applicantInfo.uname;
+    r.uphone = r.applicantInfo.uphone;
+    r.status = transformStatus(r.status);
+    delete r.id;
+    delete r.updatedAt;
+    delete r.deletedAt;
+    delete r.approverInfo;
+    delete r.applicantInfo;
+  });
+  return data;
+};
