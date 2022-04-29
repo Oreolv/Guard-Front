@@ -35,7 +35,7 @@
   import { getAbnormalList } from '/@/api/personnel/abnormal';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
   import { jsonToSheetXlsx } from '/@/components/Excel';
-  import { transformStatus, transformData } from '../data';
+  import { transformData } from '../data';
 
   const [registerModal, { openModal }] = useModal();
   const [registerTable, { reload, getRawDataSource }] = useTable({

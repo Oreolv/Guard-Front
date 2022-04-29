@@ -23,7 +23,7 @@
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
   import { useGo } from '/@/hooks/web/usePage';
   import { jsonToSheetXlsx } from '/@/components/Excel';
-  import { transformStatus } from '../data';
+  import { transformData } from '../data';
 
   const go = useGo();
 
@@ -50,24 +50,9 @@
 
   function customHeader() {
     const { rows } = getRawDataSource();
-    rows.map((r) => {
-      for (const i in r) {
-        if (r[i] == null) {
-          r[i] = '无';
-        }
-      }
-      r.approver = r.approverInfo ? r.approverInfo.real_name : null;
-      r.applicant = r.applicantInfo.uname;
-      r.uphone = r.applicantInfo.uphone;
-      r.status = transformStatus(r.status);
-      delete r.id;
-      delete r.updatedAt;
-      delete r.deletedAt;
-      delete r.approverInfo;
-      delete r.applicantInfo;
-    });
+    const data = transformData(rows);
     jsonToSheetXlsx({
-      data: rows,
+      data,
       header: {
         visitor: '访客姓名',
         applicant: '申请人',
