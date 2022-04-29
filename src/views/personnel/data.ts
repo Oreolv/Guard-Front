@@ -43,3 +43,29 @@ export const transformData = (data) => {
 export const vehicleColumns = ['驾车', '大巴', '火车', '高铁', '飞机'];
 
 export const riskStatusColumns = ['低风险', '中风险', , '高风险'];
+
+export const sexEnums = ['男', '女'];
+
+export const transformResidentData = (data) => {
+  data.map((i) => {
+    delete i.openid;
+    delete i.avatar;
+    delete i.id;
+    delete i.createdAt;
+    delete i.updatedAt;
+    delete i.deletedAt;
+    for (const idx in i) {
+      if (i[idx] == null || i[idx] === '') {
+        i[idx] = '无';
+      }
+    }
+    i.usex = sexEnums[i.usex];
+    i.foreign_status = transformForegin(i.foreign_status);
+    i.risk_status = transformForegin(i.risk_status);
+    i.vehicle = vehicleColumns[i.vehicle];
+    i.health_status = riskStatusColumns[i.health_status];
+    i.isolation_status = transformForegin(i.isolation_status);
+    i.access_status = transformForegin(i.isolation_status);
+  });
+  return data;
+};
