@@ -12,7 +12,10 @@ export const columns: BasicColumn[] = [
     title: '管理人',
     dataIndex: 'custodian',
     customRender: ({ record }) => {
-      return record.custodians.map((i) => i.label).join('，');
+      if (record.custodians instanceof Array) {
+        return record.custodians.map((i) => i.label).join('，');
+      }
+      return record.custodians.label;
     },
   },
   {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BasicTable @register="registerTable">
+    <BasicTable @register="registerTable" :isTreeTable="true">
       <template #toolbar>
         <a-button type="primary" @click="handleCreate"> 新增社区 </a-button>
       </template>
@@ -57,6 +57,9 @@
         i.custodians = i.users.map((user) => {
           return { value: user.id, label: user.real_name };
         });
+        i.children.forEach((i) => {
+          i.custodians = { value: i.user.id, label: i.user.real_name };
+        });
       });
     },
     striped: false,
@@ -94,3 +97,10 @@
     reload();
   }
 </script>
+
+<style scoped>
+  .vben-basic-arrow {
+    position: absolute;
+    left: 10px;
+  }
+</style>
