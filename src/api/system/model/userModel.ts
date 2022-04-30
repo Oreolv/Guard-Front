@@ -1,6 +1,7 @@
 /**
  * @description: Login interface parameters
  */
+import { RoleEnum } from '/@/enums/roleEnum';
 export interface LoginParams {
   username: string;
   password: string;
@@ -9,7 +10,7 @@ export interface LoginParams {
 export interface RoleInfo {
   id: number;
   role_name: string;
-  role_value: string;
+  role_value: RoleEnum;
 }
 
 /**
@@ -28,7 +29,7 @@ export interface GetUserInfoModel {
   userId: string | number;
   real_name: string;
   avatar: string;
-  roles: RoleInfo[];
+  roles: RoleInfo;
   cname?: string;
   rname?: string;
   bname?: string;

@@ -3,4 +3,5 @@ export enum RoleEnum {
   COMMUNITY = 'community',
   GRID = 'grid',
   TEST = 'test',
+  NEWS = 'news',
 }

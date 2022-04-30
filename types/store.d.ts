@@ -34,7 +34,7 @@ export interface UserInfo {
   userId: string | number;
   real_name: string;
   avatar: string;
-  roles: RoleInfo[];
+  roles: RoleInfo;
   cname?: string;
   rname?: string;
   bname?: string;
