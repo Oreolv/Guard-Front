@@ -45,6 +45,14 @@ const dashboard: AppRouteModule = {
         title: '社区管理',
       },
     },
+    {
+      path: 'village',
+      name: 'villageManagement',
+      component: () => import('/@/views/system/village/index.vue'),
+      meta: {
+        title: '小区管理',
+      },
+    },
   ],
 };
 
