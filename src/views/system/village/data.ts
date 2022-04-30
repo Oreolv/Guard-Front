@@ -47,6 +47,7 @@ export const formSchema: FormSchema[] = [
     component: 'ApiSelect',
     componentProps: {
       api: getUserList,
+      params: { onlyGrid: true },
       showArrow: true,
       labelInValue: true,
       labelField: 'real_name',
