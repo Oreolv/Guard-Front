@@ -19,6 +19,7 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/system/user/index.vue'),
       meta: {
         title: '用户管理',
+        roles: [RoleEnum.SUPER, RoleEnum.TEST],
       },
     },
     {
@@ -27,6 +28,7 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/system/role/index.vue'),
       meta: {
         title: '角色管理',
+        roles: [RoleEnum.SUPER, RoleEnum.TEST],
       },
     },
     {
@@ -43,6 +45,7 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/system/community/index.vue'),
       meta: {
         title: '社区管理',
+        roles: [RoleEnum.SUPER, RoleEnum.TEST],
       },
     },
     {
@@ -51,6 +54,7 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/system/village/index.vue'),
       meta: {
         title: '小区管理',
+        roles: [RoleEnum.SUPER, RoleEnum.TEST, RoleEnum.COMMUNITY],
       },
     },
   ],

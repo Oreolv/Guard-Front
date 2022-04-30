@@ -1,5 +1,5 @@
 import type { AppRouteModule } from '/@/router/types';
-// import { RoleEnum } from '/@/enums/roleEnum';
+import { RoleEnum } from '/@/enums/roleEnum';
 import { LAYOUT } from '/@/router/constant';
 
 const dashboard: AppRouteModule = {
@@ -11,6 +11,7 @@ const dashboard: AppRouteModule = {
     icon: 'ion:people',
     title: '防疫管理',
     orderNo: 100000,
+    roles: [RoleEnum.SUPER, RoleEnum.TEST, RoleEnum.COMMUNITY, RoleEnum.GRID],
   },
   children: [
     {
@@ -19,6 +20,7 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/personnel/resident/index.vue'),
       meta: {
         title: '居民管理',
+        roles: [RoleEnum.SUPER, RoleEnum.TEST, RoleEnum.COMMUNITY],
       },
     },
     {
