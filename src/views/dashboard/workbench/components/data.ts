@@ -178,6 +178,7 @@ export const UGroupInfo = {
   users: '用户列表',
   role: '角色列表',
   community: '社区列表',
+  village: '小区列表',
 };
 
 export const RGroupInfo = {

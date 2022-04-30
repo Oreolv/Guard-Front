@@ -9,7 +9,7 @@ enum Api {
   VillageList = '/village/getVillageList',
   createVillage = '/village/createVillage',
   RemoveVillage = '/village/removeVillage',
-  UpdateVillage = '/Village/updateVillage',
+  UpdateVillage = '/village/updateVillage',
 }
 
 export const getVillageList = (params) =>
