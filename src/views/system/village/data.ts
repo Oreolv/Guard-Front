@@ -1,6 +1,7 @@
 import { BasicColumn } from '/@/components/Table';
 import { FormSchema } from '/@/components/Table';
 import { getUserList } from '/@/api/system/user';
+import { getCommunityList } from '/@/api/system/community';
 
 export const columns: BasicColumn[] = [
   {
@@ -10,14 +11,14 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '管理人',
-    dataIndex: 'custodian',
+    dataIndex: 'grid_id',
     customRender: ({ record }) => {
       return record.user.username;
     },
   },
   {
     title: '所属社区',
-    dataIndex: 'community',
+    dataIndex: 'community_id',
     customRender: ({ record }) => {
       return record.community.name;
     },
@@ -36,21 +37,32 @@ export const columns: BasicColumn[] = [
 export const formSchema: FormSchema[] = [
   {
     field: 'name',
-    label: '社区名称',
+    label: '小区名称',
     component: 'Input',
     required: true,
   },
   {
-    field: 'custodians',
+    field: 'grid_id',
     label: '管理人',
     component: 'ApiSelect',
     componentProps: {
       api: getUserList,
-      params: { withGrid: true },
-      mode: 'multiple',
       showArrow: true,
       labelInValue: true,
       labelField: 'real_name',
+      valueField: 'id',
+    },
+    required: true,
+  },
+  {
+    field: 'community_id',
+    label: '所属社区',
+    component: 'ApiSelect',
+    componentProps: {
+      api: getCommunityList,
+      showArrow: true,
+      labelInValue: true,
+      labelField: 'name',
       valueField: 'id',
     },
     required: true,

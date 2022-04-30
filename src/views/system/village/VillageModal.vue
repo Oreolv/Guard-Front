@@ -32,14 +32,15 @@
     }
   });
 
-  const getTitle = computed(() => (!unref(isUpdate) ? '新增社区' : '编辑社区'));
+  const getTitle = computed(() => (!unref(isUpdate) ? '新增小区' : '编辑小区'));
 
   async function handleSubmit() {
     try {
       const values = await validate();
       setModalProps({ confirmLoading: true });
-      values.custodians = values.custodians.map((i) => i.value);
-      if (getTitle.value === '新增社区') {
+      values.grid_id = values.grid_id.value;
+      values.community_id = values.community_id.value;
+      if (getTitle.value === '新增小区') {
         await createVillage(values);
       } else {
         values.id = record.value.id;

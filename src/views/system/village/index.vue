@@ -2,7 +2,7 @@
   <div class="m-4">
     <BasicTable @register="registerTable">
       <template #toolbar>
-        <a-button type="primary" @click="handleCreate"> 新增社区 </a-button>
+        <a-button type="primary" @click="handleCreate"> 新增小区 </a-button>
       </template>
       <template #action="{ record }">
         <TableAction
