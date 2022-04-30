@@ -55,6 +55,12 @@
       slots: { customRender: 'action' },
       fixed: undefined,
     },
+    afterFetch: (data) => {
+      data.forEach((i) => {
+        i.community_id = { value: i.community_id, label: i.community.name };
+        i.grid_id = { value: i.grid_id, label: i.user.real_name };
+      });
+    },
   });
 
   function handleCreate() {
