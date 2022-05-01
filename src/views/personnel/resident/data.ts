@@ -7,6 +7,7 @@ import { FormSchema } from '/@/components/Table';
 import { SexEnum, StatusEnum, HealthEnum, VehicleEnum } from '/@/enums/residentEnum';
 import { DescItem } from '/@/components/Description/index';
 import { getCommunityList } from '/@/api/system/community';
+import { getVillageList } from '/@/api/system/village';
 
 export const columns: BasicColumn[] = [
   {
@@ -374,7 +375,12 @@ export const ResidentFormSchema: FormSchema[] = [
     field: 'vname',
     label: '小区名',
     required: true,
-    component: 'Input',
+    component: 'ApiSelect',
+    componentProps: {
+      api: getVillageList,
+      labelField: 'name',
+      valueField: 'name',
+    },
   },
   {
     field: 'bnum',
