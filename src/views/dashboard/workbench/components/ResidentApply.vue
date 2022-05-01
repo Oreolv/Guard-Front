@@ -3,7 +3,7 @@
     <template #extra>
       <!-- <a-button type="link" size="small">更多</a-button> -->
     </template>
-    <List item-layout="horizontal" :data-source="state.dynamicInfoItems">
+    <List item-layout="horizontal" :data-source="state.dynamicInfoItems.slice(0, 5)">
       <template #renderItem="{ item }">
         <ListItem>
           <ListItemMeta>
