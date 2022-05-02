@@ -9,7 +9,7 @@
   >
     <div v-if="isAccept">确认通过此访客申请？</div>
     <div v-else>
-      <Textarea
+      <Input.TextArea
         v-model:value="description"
         placeholder="请输入拒绝理由"
         :auto-size="{ minRows: 2, maxRows: 5 }"
@@ -20,7 +20,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
   import { BasicModal, useModalInner } from '/@/components/Modal';
-  import { Textarea } from 'ant-design-vue';
+  import { Input } from 'ant-design-vue';
   import { updateVisitor } from '/@/api/personnel/visitor';
   import { ApplyStatusEnum } from '/@/enums/personnelEnum';
 

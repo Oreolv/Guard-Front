@@ -8,7 +8,7 @@
     :minHeight="20"
   >
     <div v-if="isUpdate">
-      <Textarea
+      <Input.TextArea
         v-model:value="description"
         placeholder="请输入回复意见"
         :auto-size="{ minRows: 2, maxRows: 5 }"
@@ -22,7 +22,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
   import { BasicModal, useModalInner } from '/@/components/Modal';
-  import { Textarea } from 'ant-design-vue';
+  import { Input } from 'ant-design-vue';
   import { updateAbnormal } from '/@/api/personnel/abnormal';
   import { ApplyStatusEnum } from '/@/enums/personnelEnum';
   const id = ref();
