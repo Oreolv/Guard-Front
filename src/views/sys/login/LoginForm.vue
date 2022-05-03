@@ -64,9 +64,9 @@
         </Button>
       </ACol>
       <ACol :md="7" :xs="24">
-        <Button block @click="setLoginState(LoginStateEnum.REGISTER)">
+        <!-- <Button block @click="setLoginState(LoginStateEnum.REGISTER)">
           {{ t('sys.login.registerButton') }}
-        </Button>
+        </Button> -->
       </ACol>
     </ARow>
 
