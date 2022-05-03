@@ -66,7 +66,7 @@ export const columns: BasicColumn[] = [
     customRender: ({ record }) => {
       const color =
         record.foreign_status === StatusEnum.NO ? ResultColor.SUCCESS : ResultColor.ERROR;
-      const text = record.foreign_status === StatusEnum.NO ? '否' : '是';
+      const text = record.foreign_status === StatusEnum.NO ? '是' : '否';
       return h(Tag, { color: color }, () => text);
     },
     filters: [
