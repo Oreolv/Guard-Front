@@ -301,10 +301,16 @@ export const ResidentInfoSchema: DescItem[] = [
     field: 'administrator',
     label: '隔离负责人',
     show: (data) => (data.isolation_status === '否' ? false : true),
+    render: (_, data) => {
+      return data.recorderInfo ? data.recorderInfo.real_name : null;
+    },
   },
   {
     field: 'recorder',
     label: '填表人',
+    render: (_, data) => {
+      return data.recorderInfo.real_name;
+    },
   },
   {
     field: 'createdAt',
