@@ -3,7 +3,7 @@ import { Tag } from 'ant-design-vue';
 import { ResultColor } from '/@/enums/colorEnum';
 import { BasicColumn } from '/@/components/Table';
 import { StatusEnum } from '/@/enums/residentEnum';
-import { ApplyStatusEnum } from '/@/enums/personnelEnum';
+import { ApplyStatusEnum, HospitalEnum } from '/@/enums/personnelEnum';
 
 export const columns: BasicColumn[] = [
   {
@@ -52,6 +52,9 @@ export const columns: BasicColumn[] = [
     title: '是否前往医院',
     dataIndex: 'hospital',
     width: 120,
+    customRender: ({ record }) => {
+      return HospitalEnum[record.hospital];
+    },
   },
   {
     title: '审批人',
